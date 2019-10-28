@@ -327,6 +327,126 @@ class editModules
 				));
 			}
 
+			/*
+			* additional 6 field
+			*/
+			if($fetch["additional6"]["visibility"]=="true"){
+				$form .= functions\makeForm::label(array(
+					"id"=>"additional6Label", 
+					"for"=>"additional6", 
+					"name"=>$fetch["additional6"]["title"],
+					"require"=>""
+				));
+				$form .= functions\makeForm::inputText(array(
+					"placeholder"=>$fetch["additional6"]["title"], 
+					"id"=>"additional6", 
+					"name"=>"additional6",
+					"value"=>$output['additional6']
+				));
+			}else{
+				$form .= functions\makeForm::inputHidden(array(
+					"id"=>"additional6", 
+					"name"=>"additional6",
+					"value"=>""
+				));
+			}
+
+			/*
+			* additional 7 field
+			*/
+			if($fetch["additional7"]["visibility"]=="true"){
+				$form .= functions\makeForm::label(array(
+					"id"=>"additional7Label", 
+					"for"=>"additional7", 
+					"name"=>$fetch["additional7"]["title"],
+					"require"=>""
+				));
+				$form .= functions\makeForm::inputText(array(
+					"placeholder"=>$fetch["additional7"]["title"], 
+					"id"=>"additional7", 
+					"name"=>"additional7",
+					"value"=>$output['additional7']
+				));
+			}else{
+				$form .= functions\makeForm::inputHidden(array(
+					"id"=>"additional7", 
+					"name"=>"additional7",
+					"value"=>""
+				));
+			}
+
+			/*
+			* additional 8 field
+			*/
+			if($fetch["additional8"]["visibility"]=="true"){
+				$form .= functions\makeForm::label(array(
+					"id"=>"additional8Label", 
+					"for"=>"additional8", 
+					"name"=>$fetch["additional8"]["title"],
+					"require"=>""
+				));
+				$form .= functions\makeForm::inputText(array(
+					"placeholder"=>$fetch["additional8"]["title"], 
+					"id"=>"additional8", 
+					"name"=>"additional8",
+					"value"=>$output['additional8']
+				));
+			}else{
+				$form .= functions\makeForm::inputHidden(array(
+					"id"=>"additional8", 
+					"name"=>"additional8",
+					"value"=>""
+				));
+			}
+
+			/*
+			* additional 9 field
+			*/
+			if($fetch["additional9"]["visibility"]=="true"){
+				$form .= functions\makeForm::label(array(
+					"id"=>"additional9Label", 
+					"for"=>"additional9", 
+					"name"=>$fetch["additional9"]["title"],
+					"require"=>""
+				));
+				$form .= functions\makeForm::inputText(array(
+					"placeholder"=>$fetch["additional9"]["title"], 
+					"id"=>"additional9", 
+					"name"=>"additional9",
+					"value"=>$output['additional9']
+				));
+			}else{
+				$form .= functions\makeForm::inputHidden(array(
+					"id"=>"additional9", 
+					"name"=>"additional9",
+					"value"=>""
+				));
+			}
+
+			/*
+			* additional 10 field
+			*/
+			if($fetch["additional10"]["visibility"]=="true"){
+				$form .= functions\makeForm::label(array(
+					"id"=>"additional10Label", 
+					"for"=>"additional10", 
+					"name"=>$fetch["additional10"]["title"],
+					"require"=>""
+				));
+				$form .= functions\makeForm::inputText(array(
+					"placeholder"=>$fetch["additional10"]["title"], 
+					"id"=>"additional10", 
+					"name"=>"additional10",
+					"value"=>$output['additional10']
+				));
+			}else{
+				$form .= functions\makeForm::inputHidden(array(
+					"id"=>"additional10", 
+					"name"=>"additional10",
+					"value"=>""
+				));
+			}
+
 
 
 			/*

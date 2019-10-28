@@ -94,6 +94,28 @@ class modules
 		return json_decode($fetchJson, true);
 	}
 
+	private function selectParentTitlsByIds($args)
+	{
+		$ins = explode(",", $args["mods"]);
+		$i=array();
+		foreach ($ins as $v) {
+			$i[] = "'".$v."'";
+		}
+		$fetch = [];
+		$select = "SELECT `title`,`type` FROM `usefull_modules` WHERE `type` IN (".implode(',', $i).") AND `lang`=:lang AND `status`!=:one";
+		// echo $select;
+		$prepare = $this->conn->prepare($select);
+		$prepare->execute(array(
+			":one"=>1,
+			":lang"=>$_SESSION["LANG"]
+		));
+		if($prepare->rowCount()){
+			$fetch = $prepare->fetchAll(PDO::FETCH_ASSOC);
+		}
+		
+		return $fetch;
+	}
+
 	private function parentModuleOptions($args)
 	{
 		$options = array();
@@ -325,6 +347,11 @@ class modules
 		$additional3 = (!empty($args["additional3"])) ? $args["additional3"] : "";
 		$additional4 = (!empty($args["additional4"])) ? $args["additional4"] : "";
 		$additional5 = (!empty($args["additional5"])) ? $args["additional5"] : "";
+		$additional6 = (!empty($args["additional6"])) ? $args["additional6"] : "";
+		$additional7 = (!empty($args["additional7"])) ? $args["additional7"] : "";
+		$additional8 = (!empty($args["additional8"])) ? $args["additional8"] : "";
+		$additional9 = (!empty($args["additional9"])) ? $args["additional9"] : "";
+		$additional10 = (!empty($args["additional10"])) ? $args["additional10"] : "";
 		$classname = (!empty($args["classname"])) ? $args["classname"] : "";
 		$map_coordinates = (!empty($args["map_coordinates"])) ? $args["map_coordinates"] : "";
 		$type = $this->getTypeByIdx($args["idx"]);
@@ -350,6 +377,11 @@ class modules
 		`additional3`=:additional3, 
 		`additional4`=:additional4, 
 		`additional5`=:additional5, 
+		`additional6`=:additional6, 
+		`additional7`=:additional7, 
+		`additional8`=:additional8, 
+		`additional9`=:additional9, 
+		`additional10`=:additional10, 
 		`classname`=:classname, 
 		`map_coordinates`=:map_coordinates
 		WHERE `idx`=:idx AND `lang`=:lang";
@@ -363,6 +395,11 @@ class modules
 			":additional3"=>$additional3,
 			":additional4"=>$additional4,
 			":additional5"=>$additional5,
+			":additional6"=>$additional6,
+			":additional7"=>$additional7,
+			":additional8"=>$additional8,
+			":additional9"=>$additional9,
+			":additional10"=>$additional10,
 			":classname"=>$classname,
 			":map_coordinates"=>$map_coordinates,
 			":idx"=>$idx, 
@@ -578,6 +615,31 @@ class modules
 				"title":"Additional 5",
 				"defaultValue":""
 			},
+			"additional6":{
+				"visibility":"false",
+				"title":"Additional 1",
+				"defaultValue":""
+			},
+			"additional7":{
+				"visibility":"false",
+				"title":"Additional 2",
+				"defaultValue":""
+			},
+			"additional8":{
+				"visibility":"false",
+				"title":"Additional 3",
+				"defaultValue":""
+			},
+			"additional9":{
+				"visibility":"false",
+				"title":"Additional 4",
+				"defaultValue":""
+			},
+			"additional10":{
+				"visibility":"false",
+				"title":"Additional 5",
+				"defaultValue":""
+			},
 			"photoUploaderBox":{
 				"visibility":"true",
 				"title":"ფოტოს მიმაგრება",
@@ -623,6 +685,11 @@ class modules
 		$additional3 = (!empty($args["additional3"])) ? $args["additional3"] : "";
 		$additional4 = (!empty($args["additional4"])) ? $args["additional4"] : "";
 		$additional5 = (!empty($args["additional5"])) ? $args["additional5"] : "";
+		$additional6 = (!empty($args["additional6"])) ? $args["additional6"] : "";
+		$additional7 = (!empty($args["additional7"])) ? $args["additional7"] : "";
+		$additional8 = (!empty($args["additional8"])) ? $args["additional8"] : "";
+		$additional9 = (!empty($args["additional9"])) ? $args["additional9"] : "";
+		$additional10 = (!empty($args["additional10"])) ? $args["additional10"] : "";
 		$classname = (!empty($args["classname"])) ? $args["classname"] : "";
 		$map_coordinates = (!empty($args["map_coordinates"])) ? $args["map_coordinates"] : "";
 
@@ -653,6 +720,11 @@ class modules
 			`additional3`=:additional3, 
 			`additional4`=:additional4, 
 			`additional5`=:additional5, 
+			`additional6`=:additional6, 
+			`additional7`=:additional7, 
+			`additional8`=:additional8, 
+			`additional9`=:additional9, 
+			`additional10`=:additional10, 
 			`lang`=:lang";
 			$prepare3 = $this->conn->prepare($insert);
 			$prepare3->execute(array(
@@ -670,6 +742,11 @@ class modules
 				":additional3"=>$additional3,
 				":additional4"=>$additional4,
 				":additional5"=>$additional5,
+				":additional6"=>$additional6,
+				":additional7"=>$additional7,
+				":additional8"=>$additional8,
+				":additional9"=>$additional9,
+				":additional10"=>$additional10,
 				":lang"=>$val['title']
 			)); 
 

@@ -28,7 +28,7 @@ class Image extends Controller
 
 			$fileSize = filesize($filename[1]);
 			
-			$resizeDir = "public/_temporaty/";
+			$resizeDir = "public/_temp/";
 			$resizeFileName = $fileSize. "-" . $w . "-" . $h . "-". $grey . $full . "-" . str_replace(array("/", " "), "-", $filename[1]);
 			$resizePath = $resizeDir . $resizeFileName;
 

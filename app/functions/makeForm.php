@@ -31,13 +31,33 @@ class makeForm
 		}else{
 			$out .= "<option value=\"\" disabled>".$args['choose']."</option>";
 		}
+
+
 		foreach ($args["options"] as $key => $value) {
-			$selected = ($key==$args['selected']) ? 'selected' : '';
+			if(is_array($args['selected'])){
+				// $selected = (in_array($key, $args['selected'])) ? 'selected' : '';
+				$selected = "";
+			}else{
+				$selected = ($key==$args['selected']) ? 'selected' : '';
+			}
 			$out .= "<option value=\"".$key."\" ".$selected.">".$value."</option>";
 		}
 
 		$out .= "</select>";
 		$out .= "</div>";
+		if(is_array($args['selected'])){
+			$out .= "<script>";
+			foreach($args['selected'] as $d):
+			$out .= sprintf(
+				"$('#%s').find('option[value=\"%s\"]').prop('selected', true);",
+				$args['id'],
+				$d
+			);
+			endforeach;
+			$out .= "$('#".$args['id']."').material_select();";
+
+			$out .= "</script>";
+		}
 		return $out;
 	}
 

@@ -1,6 +1,6 @@
 var Config = {
-	website:"https://buu.ge/",
-	ajax:"https://buu.ge/ge/ajax/index", 
+	website:"http://garden.gdcq.ge/",
+	ajax:"http://garden.gdcq.ge/ge/ajax/index", 
 	pleaseWait:"მოთხოვნა იგზავნება...",
 	mainLanguage:"ge"
 };
@@ -224,6 +224,39 @@ var formPageAdd = function(){
 			setTimeout(function(){ location.reload(); }, 2000);
 		});
 	}
+};
+
+var openModules = function(mods, lang){
+	$(".modal .modal-content").html("გთხოვთ დაიცადოთ...");
+	$.ajax({
+		method: "POST",
+		url: Config.ajax + "/loadModules",
+		data: { mods:mods, lang: lang }
+	}).done(function( msg ) {
+		var obj = $.parseJSON(msg);
+		if(obj.Error.Code==1){
+			// $(".modal-message-box").html(obj.Error.Text);
+		}else if(obj.Success.Code==1){
+			// $(".modal-message-box").html(obj.Success.Text);
+			$(".modal .modal-content").html(obj.Success.Text);
+			
+		}	
+	});
+
+	$(".modal .modal-footer").html("");
+	$('.modal').openModal();
+
+	// var modsSplitted = mods.split(",");
+	// var html = "<h4>მოდულები</h4>";
+	// html += "<ul class=\"collection\">";
+	// for(var i=0; i<modsSplitted.length; i++){
+	// 	html += "<li class=\"collection-item\"><a href=\"/ge/dashboard/modules/"+modsSplitted[i]+"\" style=\"color: #2bbbad; font-family: 'NotoRegular'\">"+modsSplitted[i]+"</a></li>";
+	// }
+	// html += "</ul>";
+
+	// $(".modal .modal-content").html(html);
+	// $(".modal .modal-footer").html("");
+	// $('.modal').openModal();
 };
 
 var formPageEdit = function(idx, lang){
@@ -888,6 +921,11 @@ var formModuleEdit = function(idx, lang){
 	var additional3 = (typeof $("#additional3").val() !== "undefined" && $("#additional3").val()!="") ? $("#additional3").val() : "empty";
 	var additional4 = (typeof $("#additional4").val() !== "undefined" && $("#additional4").val()!="") ? $("#additional4").val() : "empty";
 	var additional5 = (typeof $("#additional5").val() !== "undefined" && $("#additional5").val()!="") ? $("#additional5").val() : "empty";
+	var additional6 = (typeof $("#additional6").val() !== "undefined" && $("#additional6").val()!="") ? $("#additional6").val() : "empty";
+	var additional7 = (typeof $("#additional7").val() !== "undefined" && $("#additional7").val()!="") ? $("#additional7").val() : "empty";
+	var additional8 = (typeof $("#additional8").val() !== "undefined" && $("#additional8").val()!="") ? $("#additional8").val() : "empty";
+	var additional9 = (typeof $("#additional9").val() !== "undefined" && $("#additional9").val()!="") ? $("#additional9").val() : "empty";
+	var additional10 = (typeof $("#additional10").val() !== "undefined" && $("#additional10").val()!="") ? $("#additional10").val() : "empty";
 
 	var classname = (typeof $("#classname").val() !== "undefined" && $("#classname").val()!="") ? $("#classname").val() : "";
 	var map_coordinates = (typeof $("#map_coordinates").val() !== "undefined" && $("#map_coordinates").val()!="") ? $("#map_coordinates").val() : "";
@@ -945,6 +983,11 @@ var formModuleEdit = function(idx, lang){
 				additional3:additional3, 
 				additional4:additional4, 
 				additional5:additional5, 
+				additional6:additional6, 
+				additional7:additional7, 
+				additional8:additional8, 
+				additional9:additional9, 
+				additional10:additional10, 
 				classname:classname, 
 				map_coordinates:map_coordinates, 
 				serialPhotos:serialPhotos, 
@@ -1004,6 +1047,13 @@ var formModuleAdd = function(moduleSlug, lang){
 	var additional3 = (typeof $("#additional3").val() !== "undefined" && $("#additional3").val()!="") ? $("#additional3").val() : "empty";
 	var additional4 = (typeof $("#additional4").val() !== "undefined" && $("#additional4").val()!="") ? $("#additional4").val() : "empty";
 	var additional5 = (typeof $("#additional5").val() !== "undefined" && $("#additional5").val()!="") ? $("#additional5").val() : "empty";
+	
+	var additional6 = (typeof $("#additional6").val() !== "undefined" && $("#additional6").val()!="") ? $("#additional6").val() : "empty";
+	var additional7 = (typeof $("#additional7").val() !== "undefined" && $("#additional7").val()!="") ? $("#additional7").val() : "empty";
+	var additional8 = (typeof $("#additional8").val() !== "undefined" && $("#additional8").val()!="") ? $("#additional8").val() : "empty";
+	var additional9 = (typeof $("#additional9").val() !== "undefined" && $("#additional9").val()!="") ? $("#additional9").val() : "empty";
+	var additional10 = (typeof $("#additional10").val() !== "undefined" && $("#additional10").val()!="") ? $("#additional10").val() : "empty";
+
 	var classname = (typeof $("#classname").val() !== "undefined" && $("#classname").val()!="") ? $("#classname").val() : "";
 	var map_coordinates = (typeof $("#map_coordinates").val() !== "undefined" && $("#map_coordinates").val()!="") ? $("#map_coordinates").val() : "";
 
@@ -1057,6 +1107,11 @@ var formModuleAdd = function(moduleSlug, lang){
 				additional3:additional3,
 				additional4:additional4,
 				additional5:additional5,
+				additional6:additional6,
+				additional7:additional7,
+				additional8:additional8,
+				additional9:additional9,
+				additional10:additional10,
 				classname:classname, 
 				map_coordinates:map_coordinates, 
 				serialPhotos:serialPhotos, 

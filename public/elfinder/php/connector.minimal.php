@@ -1,12 +1,15 @@
 <?php
-session_name("buu");
+session_name("garden");
 session_start();
 error_reporting(0); // Set E_ALL for debuging
 
-if(!isset($_SESSION["buu_username"]))
-{
-	exit();
-}
+// include("../../../app/core/Config.php");
+
+// if(!isset("garden_username"]))
+// {
+// 	exit();
+// }
+
 
 // load composer autoload before load elFinder autoload If you need composer
 //require './vendor/autoload.php';
@@ -71,13 +74,15 @@ $opts = array(
 	// 'debug' => true,
 	'roots' => array(
 		array(
-			'driver'        => 'LocalFileSystem',           // driver for accessing file system (REQUIRED)
-			'path'          => '../../filemanager/',                 // path to files (REQUIRED)
-			'URL'           => dirname($_SERVER['PHP_SELF']) . '/../../filemanager/', // URL to files (REQUIRED)
-			'uploadDeny'    => array('php'),                // All Mimetypes not allowed to upload
-			'uploadAllow'   => array('image', 'rar', 'text/plain', 'application/pdf', 'application/octet-stream'),// Mimetype `image` and `text/plain` allowed to upload
-			'uploadOrder'   => array('deny', 'allow'),      // allowed Mimetype `image` and `text/plain` only
-			'accessControl' => 'access'                     // disable and hide dot starting files (OPTIONAL)
+			'driver'        => 'LocalFileSystem', 
+			'dirMode'        => 0755,            // new dirs mode (default 0755)
+        	'fileMode'       => 0644,            // new files mode (default 0644)
+			'path'          => '../../filemanager/',   
+			'URL'           => dirname($_SERVER['PHP_SELF']) . '/../../filemanager/',
+			'uploadDeny'    => array('php'),           
+			'uploadAllow'   => array('image', 'rar', 'text/plain', 'application/pdf', 'application/octet-stream'),
+			'uploadOrder'   => array('deny', 'allow'),      
+			'accessControl' => 'access'       
 		)
 	)
 );

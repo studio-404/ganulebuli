@@ -1,0 +1,106 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+body{
+	width: 100%;
+}
+
+.container{
+	margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    height: 3000px;
+    overflow-y: scroll;
+}
+
+header{
+	position: fixed;
+    will-change: transform;
+    transform: translate3d(0px, 0px, 0px);
+	top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    background-color: pink;
+    display: table;
+}
+
+header h1{
+	font-family: roboto;
+	color: black;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.sec-1{
+	position: fixed;
+    will-change: transform;
+    transform: translate3d(0px, 0px, 0px);
+	top: 100%;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    background-color: pink;
+    display: table;
+}
+
+.sec-1 h2{
+	font-family: roboto;
+	color: black;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.sec-2{
+	position: fixed;
+    will-change: transform;
+    transform: translate3d(0px, 0px, 0px);
+	top: 200%;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    background-color: pink;
+    display: table;
+}
+
+.sec-2 h2{
+	font-family: roboto;
+	color: black;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+footer{
+	position: fixed;
+    will-change: transform;
+    transform: translate3d(0px, 0px, 0px);
+	top: 300%;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    background-color: pink;
+    display: table;
+}
+
+footer h2{
+	font-family: roboto;
+	color: black;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}

@@ -35,6 +35,11 @@ class addModule
 		$additional3 = functions\request::index("POST","additional3");
 		$additional4 = functions\request::index("POST","additional4");
 		$additional5 = functions\request::index("POST","additional5");
+		$additional6 = functions\request::index("POST","additional6");
+		$additional7 = functions\request::index("POST","additional7");
+		$additional8 = functions\request::index("POST","additional8");
+		$additional9 = functions\request::index("POST","additional9");
+		$additional10 = functions\request::index("POST","additional10");
 		$classname = functions\request::index("POST","classname");
 		$map_coordinates = functions\request::index("POST","map_coordinates");
 		$serialPhotos = unserialize(functions\request::index("POST","serialPhotos"));
@@ -64,6 +69,11 @@ class addModule
 					'additional3'=>$additional3, 
 					'additional4'=>$additional4, 
 					'additional5'=>$additional5, 
+					'additional6'=>$additional6, 
+					'additional7'=>$additional7, 
+					'additional8'=>$additional8, 
+					'additional9'=>$additional9, 
+					'additional10'=>$additional10, 
 					'classname'=>$classname, 
 					'map_coordinates'=>$map_coordinates, 
 					'serialPhotos'=>$serialPhotos, 

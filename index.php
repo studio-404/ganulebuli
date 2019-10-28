@@ -1,5 +1,5 @@
 <?php
-session_name("buu");
+session_name("garden");
 date_default_timezone_set('Asia/Tbilisi');
 
 ini_set('post_max_size', '5120M');
@@ -13,12 +13,12 @@ header("Content-type: text/html; charset=utf-8");
 
 require_once 'app/core/Config.php';
 
-if(empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] == "off"){
-    $redirect = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-    header('HTTP/1.1 301 Moved Permanently');
-    header('Location: ' . $redirect);
-    exit();
-}
+// if(empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] == "off"){
+//     $redirect = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+//     header('HTTP/1.1 301 Moved Permanently');
+//     header('Location: ' . $redirect);
+//     exit();
+// }
 
 error_reporting((Config::UNDER_CONSTRUCTOR) ? E_ALL : 0); 
 ini_set('display_errors', (Config::UNDER_CONSTRUCTOR) ? 1 : 0);

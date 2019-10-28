@@ -153,8 +153,9 @@ class editPageForm
 				$form .= functions\makeForm::select(array(
 					"id"=>"attachModule",
 					"choose"=>"მიამაგრე მოდული",
+					"multiple"=>true,
 					"options"=>$parentModuleOptions->getter(),
-					"selected"=>$output['usefull_type'],
+					"selected"=>explode(",",$output['usefull_type']),
 					"disabled"=>"false"
 				));
 			}

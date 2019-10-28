@@ -31,7 +31,7 @@ class editPage
 		$title = functions\request::index("POST","title");
 		$slug = str_replace(" ","-",functions\request::index("POST","slug"));
 		$cssClass = functions\request::index("POST","cssClass");
-		$attachModule = functions\request::index("POST","attachModule");
+		$attachModule = implode(",", $_POST["attachModule"]);
 		$redirect = functions\request::index("POST","redirect");
 		$pageDescription = functions\request::index("POST","pageDescription");
 		$pageText = functions\request::index("POST","pageText");

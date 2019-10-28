@@ -17,8 +17,9 @@ class websiteNavigation
 				
 				$visibility = ($val['visibility']==1) ? "visibility_off" : "visibility";
 
-				$usefull_url = ($val['usefull_type'] == "false") ? "javascript:void(0)" : "/".$_SESSION["LANG"]."/dashboard/modules/".$val['usefull_type'];
-				$usefull_type = "<a href=\"".$usefull_url."\">";
+				// $usefull_url = ($val['usefull_type'] == "false") ? "javascript:void(0)" : "/".$_SESSION["LANG"]."/dashboard/modules/".$val['usefull_type'];
+				
+				$usefull_type = "<a href=\"javascript:void(0)\" onclick=\"openModules('".$val['usefull_type']."', '".$_SESSION["LANG"]."')\">";
 				$usefull_type .= "<i class=\"material-icons tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"მოდულზე გადასვლა\">view_module</i>";
 				$usefull_type .= "</a>";
 
@@ -98,8 +99,9 @@ class websiteNavigation
 						$vis = ($v['visibility']==1) ? "visibility_off" : "visibility";
 
 
-						$usefull_url2 = ($v['usefull_type'] == "false") ? "javascript:void(0)" : "/".$_SESSION["LANG"]."/dashboard/modules/".$v['usefull_type'];
-						$usefull_type2 = "<a href=\"".$usefull_url2."\">";
+						// $usefull_url2 = ($v['usefull_type'] == "false") ? "javascript:void(0)" : "/".$_SESSION["LANG"]."/dashboard/modules/".$v['usefull_type'];
+
+						$usefull_type2 = "<a href=\"javascript:void(0)\" onclick=\"openModules('".$v['usefull_type']."', '".$_SESSION["LANG"]."')\">";
 						$usefull_type2 .= "<i class=\"material-icons tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"მოდულზე გადასვლა\">view_module</i>";
 						$usefull_type2 .= "</a>";
 
@@ -153,8 +155,8 @@ class websiteNavigation
 								$slug3 = ($v3['redirect']!="false" && $v3['redirect']!="") ? $v3['redirect'] : Config::WEBSITE.$_SESSION["LANG"]."/".$v3['slug']; 
 
 								$vis = ($v3['visibility']==1) ? "visibility_off" : "visibility";
-								$usefull_url3 = ($v3['usefull_type'] == "false") ? "javascript:void(0)" : "/".$_SESSION["LANG"]."/dashboard/modules/".$v['usefull_type'];
-								$usefull_type3 = "<a href=\"".$usefull_url3."\">";
+								// $usefull_url3 = ($v3['usefull_type'] == "false") ? "javascript:void(0)" : "/".$_SESSION["LANG"]."/dashboard/modules/".$v['usefull_type'];
+								$usefull_type3 = "<a href=\"javascript:void(0)\" onclick=\"openModules('".$v3['usefull_type']."', '".$_SESSION["LANG"]."')\">";
 								$usefull_type3 .= "<i class=\"material-icons tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"მოდულზე გადასვლა\">view_module</i>";
 								$usefull_type3 .= "</a>";
 
@@ -209,8 +211,8 @@ class websiteNavigation
 										$slug4 = ($v4['redirect']!="false" && $v4['redirect']!="") ? $v4['redirect'] : Config::WEBSITE.$_SESSION["LANG"]."/".$v4['slug']; 
 
 										$vis4 = ($v4['visibility']==1) ? "visibility_off" : "visibility";
-										$usefull_url4 = ($v4['usefull_type'] == "false") ? "javascript:void(0)" : "/".$_SESSION["LANG"]."/dashboard/modules/".$v4['usefull_type'];
-										$usefull_url4 = "<a href=\"".$usefull_url3."\">";
+										// $usefull_url4 = ($v4['usefull_type'] == "false") ? "javascript:void(0)" : "/".$_SESSION["LANG"]."/dashboard/modules/".$v4['usefull_type'];
+										$usefull_url4 = "<a href=\"javascript:void(0)\" onclick=\"openModules('".$v4['usefull_type']."', '".$_SESSION["LANG"]."')\">";
 										$usefull_url4 .= "<i class=\"material-icons tooltipped\" data-position=\"bottom\" data-delay=\"50\" data-tooltip=\"მოდულზე გადასვლა\">view_module</i>";
 										$usefull_url4 .= "</a>";
 

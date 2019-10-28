@@ -292,6 +292,126 @@ class addModuleForm
 			));
 		}
 
+		/*
+		* additional 6 field
+		*/
+		if($fetch["additional6"]["visibility"]=="true"){
+			$form .= functions\makeForm::label(array(
+				"id"=>"additional6Label", 
+				"for"=>"additional6", 
+				"name"=>$fetch["additional6"]["title"],
+				"require"=>""
+			));
+			$form .= functions\makeForm::inputText(array(
+				"placeholder"=>$fetch["additional6"]["title"], 
+				"id"=>"additional6", 
+				"name"=>"additional6",
+				"value"=>$fetch["additional6"]["defaultValue"]
+			));
+		}else{
+			$form .= functions\makeForm::inputHidden(array(
+				"id"=>"additional6", 
+				"name"=>"additional6",
+				"value"=>""
+			));
+		}
+
+		/*
+		* additional 7 field
+		*/
+		if($fetch["additional7"]["visibility"]=="true"){
+			$form .= functions\makeForm::label(array(
+				"id"=>"additional7Label", 
+				"for"=>"additional7", 
+				"name"=>$fetch["additional7"]["title"],
+				"require"=>""
+			));
+			$form .= functions\makeForm::inputText(array(
+				"placeholder"=>$fetch["additional7"]["title"], 
+				"id"=>"additional7", 
+				"name"=>"additional7",
+				"value"=>$fetch["additional7"]["defaultValue"]
+			));
+		}else{
+			$form .= functions\makeForm::inputHidden(array(
+				"id"=>"additional7", 
+				"name"=>"additional7",
+				"value"=>""
+			));
+		}
+
+		/*
+		* additional 8 field
+		*/
+		if($fetch["additional8"]["visibility"]=="true"){
+			$form .= functions\makeForm::label(array(
+				"id"=>"additional8Label", 
+				"for"=>"additional8", 
+				"name"=>$fetch["additional8"]["title"],
+				"require"=>""
+			));
+			$form .= functions\makeForm::inputText(array(
+				"placeholder"=>$fetch["additional8"]["title"], 
+				"id"=>"additional8", 
+				"name"=>"additional8",
+				"value"=>$fetch["additional8"]["defaultValue"]
+			));
+		}else{
+			$form .= functions\makeForm::inputHidden(array(
+				"id"=>"additional8", 
+				"name"=>"additional8",
+				"value"=>""
+			));
+		}
+
+		/*
+		* additional 9 field
+		*/
+		if($fetch["additional9"]["visibility"]=="true"){
+			$form .= functions\makeForm::label(array(
+				"id"=>"additional9Label", 
+				"for"=>"additional9", 
+				"name"=>$fetch["additional9"]["title"],
+				"require"=>""
+			));
+			$form .= functions\makeForm::inputText(array(
+				"placeholder"=>$fetch["additional9"]["title"], 
+				"id"=>"additional9", 
+				"name"=>"additional9",
+				"value"=>$fetch["additional9"]["defaultValue"]
+			));
+		}else{
+			$form .= functions\makeForm::inputHidden(array(
+				"id"=>"additional9", 
+				"name"=>"additional9",
+				"value"=>""
+			));
+		}
+
+		/*
+		* additional 10 field
+		*/
+		if($fetch["additional10"]["visibility"]=="true"){
+			$form .= functions\makeForm::label(array(
+				"id"=>"additional10Label", 
+				"for"=>"additional10", 
+				"name"=>$fetch["additional10"]["title"],
+				"require"=>""
+			));
+			$form .= functions\makeForm::inputText(array(
+				"placeholder"=>$fetch["additional10"]["title"], 
+				"id"=>"additional10", 
+				"name"=>"additional10",
+				"value"=>$fetch["additional10"]["defaultValue"]
+			));
+		}else{
+			$form .= functions\makeForm::inputHidden(array(
+				"id"=>"additional10", 
+				"name"=>"additional10",
+				"value"=>""
+			));
+		}
+
 
 		/*
 		* PhotoUploaderBox field
