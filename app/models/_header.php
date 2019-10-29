@@ -84,11 +84,11 @@ class _header
 		$out .= "<meta property=\"og:type\" content=\"website\" />\n";
 		$out .= sprintf("<meta property=\"og:url\" content=\"%s\" />\n", $actual_link);
 
-		$out .= sprintf("<link rel=\"shortcut icon\" href=\"%spublic/images/icons/favicon.png?v=%s\" type=\"image/ico\" />\n", Config::WEBSITE, Config::WEBSITE_VERSION);
+		$out .= sprintf("<link rel=\"shortcut icon\" href=\"%spublic/img/web/favicon.png?v=%s\" type=\"image/ico\" />\n", Config::WEBSITE, Config::WEBSITE_VERSION);
 
 		$out .= sprintf("<title>%s</title>\n", $title);
 
-		// $out .= sprintf("<link type=\"text/css\" rel=\"stylesheet\" href=\"%spublic/css/web/style1.css?v=%s\" media=\"all\" />\n", Config::WEBSITE, Config::WEBSITE_VERSION);
+		$out .= sprintf("<link type=\"text/css\" rel=\"stylesheet\" href=\"%spublic/css/web/general.css?v=%s\" media=\"all\" />\n", Config::WEBSITE, Config::WEBSITE_VERSION);
 
 
 		if(isset($_SESSION['LANG']) && $_SESSION['LANG']=="ge"){

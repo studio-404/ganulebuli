@@ -39,13 +39,62 @@ class Home extends Controller
 		$navigation = $this->model('_navigation');
 		$navigation->data = $db_navigation->getter();
 
-		/* header top */
-		$headertop = $this->model('_top');
-		$headertop->data["navigationModule"] = $navigation->index();
+		$db_contactdetails = new Database("modules", array(
+			"method"=>"selectModuleByType", 
+			"type"=>"contactdetails"
+		));
 
-		/*footer */
-		$footer = $this->model('_footer');
+		$db_slider = new Database("modules", array(
+			"method"=>"selectModuleByType", 
+			"type"=>"slider"
+		));
 
+		$db_socialnetworks = new Database("modules", array(
+			"method"=>"selectModuleByType", 
+			"type"=>"socialnetworks"
+		));
+
+		$db_yourhouse = new Database("modules", array(
+			"method"=>"selectModuleByType", 
+			"type"=>"yourhouse"
+		));
+
+		$db_advanteges = new Database("modules", array(
+			"method"=>"selectModuleByType", 
+			"type"=>"advanteges"
+		));
+
+		$db_map = new Database("modules", array(
+			"method"=>"selectModuleByType", 
+			"type"=>"map"
+		));
+
+		$db_nearobjects = new Database("modules", array(
+			"method"=>"selectModuleByType", 
+			"type"=>"nearobjects"
+		));
+
+		$db_conditions = new Database("modules", array(
+			"method"=>"selectModuleByType", 
+			"type"=>"conditions"
+		));
+
+		$db_aboutus = new Database("modules", array(
+			"method"=>"selectModuleByType", 
+			"type"=>"aboutus"
+		));
+
+		$db_floors1 = new Database("page", array(
+			"method"=>"selecteByCid",
+			"cid"=>136,
+			"lang"=>$_SESSION["LANG"]
+		));
+
+		$db_floors2 = new Database("page", array(
+			"method"=>"selecteByCid",
+			"cid"=>137,
+			"lang"=>$_SESSION["LANG"]
+		));
 
 		/* view */
 		$this->view('home/index', [
@@ -54,9 +103,18 @@ class Home extends Controller
 				"public"=>Config::PUBLIC_FOLDER
 			),
 			"headerModule"=>$header->index(), 
-			"headertop"=>$headertop->index(), 
-			"pageData"=>$db_pagedata->getter(), 
-			"footer"=>$footer->index()
+			"contactdetails"=>$db_contactdetails->getter(), 
+			"slider"=>$db_slider->getter(), 
+			"social"=>$db_socialnetworks->getter(), 
+			"yourhouse"=>$db_yourhouse->getter(), 
+			"advanteges"=>$db_advanteges->getter(), 
+			"map"=>$db_map->getter(), 
+			"nearobjects"=>$db_nearobjects->getter(), 
+			"conditions"=>$db_conditions->getter(), 
+			"aboutus"=>$db_aboutus->getter(), 
+			"pageData"=>$db_pagedata->getter(),
+			"floor1"=>$db_floors1->getter(),
+			"floor2"=>$db_floors2->getter()
 		]);
 	}
 
