@@ -4,7 +4,34 @@ header('Content-type: image/svg+xml');
 echo '<?xml version="1.0" standalone="no"?>';
 
 $color = "rgba(255,200,18,0.3)"; 
-if(isset($_GET["sold"])){ $color = "rgba(0,0,0,0.8)"; }
+$color2 = "rgba(113,216,44,0.3)"; 
+$color3 = "rgba(222,255,18,0.3)"; 
+$color4 = "rgba(111,163,149,0.3)"; 
+$color5 = "rgba(87,87,87,0.3)"; 
+
+if(isset($_GET["sold"])){ 
+  $exp = explode(",", $_GET["sold"]);
+  if(in_array(1, $exp)){
+    $color = "rgba(0,0,0,0.8)";
+  } 
+
+  if(in_array(2, $exp)){
+    $color2 = "rgba(0,0,0,0.8)";
+  } 
+
+  if(in_array(3, $exp)){
+    $color3 = "rgba(0,0,0,0.8)";
+  } 
+
+  if(in_array(4, $exp)){
+    $color4 = "rgba(0,0,0,0.8)";
+  }
+
+  if(in_array(5, $exp)){
+    $color5 = "rgba(0,0,0,0.8)";
+  } 
+
+}
 ?>
 
 <svg id="Group_967" data-name="Group 967" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="867.566" height="836.132" viewBox="0 0 867.566 836.132">
@@ -346,18 +373,18 @@ if(isset($_GET["sold"])){ $color = "rgba(0,0,0,0.8)"; }
 
   <path id="Path_1552" data-name="Path 1552" d="M129.027,360.7l39.7-.053,0,34.168h73.611V374.728H250.3V358.636l67.8,0L318,249.617l-39.772.041,0-4.016L278.1,43.431l-148.975.011-.1,317.262" transform="translate(-105.805 16.67)" fill="<?=$color?>" fill-rule="evenodd"/>
 
-  <path id="Path_1864" data-name="Path 1864" d="M129.027,78.2l40.107.054,0-34.825h74.367V63.908h8.039v16.4l68.5,0-.1,111.113-40.18-.041,0,4.093-.122,206.1-150.5-.012-.1-323.363" transform="translate(-105.805 374.327)" fill="rgba(87,87,87,0.3)" fill-rule="evenodd"/>
-  <path id="Path_1553" data-name="Path 1553" d="M727.76,595.325H586.852V557.08H727.76v38.245" transform="translate(80.144 225.293)" fill="rgba(111,163,149,0.3)" fill-rule="evenodd"/>
+  <path id="Path_1864" data-name="Path 1864" d="M129.027,78.2l40.107.054,0-34.825h74.367V63.908h8.039v16.4l68.5,0-.1,111.113-40.18-.041,0,4.093-.122,206.1-150.5-.012-.1-323.363" transform="translate(-105.805 374.327)" fill="<?=$color5?>" fill-rule="evenodd"/>
+  <path id="Path_1553" data-name="Path 1553" d="M727.76,595.325H586.852V557.08H727.76v38.245" transform="translate(80.144 225.293)" fill="<?=$color4?>" fill-rule="evenodd"/>
   <line id="Line_4044" data-name="Line 4044" x1="140.908" transform="translate(666.996 820.618)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4045" data-name="Line 4045" y1="38.245" transform="translate(666.996 782.373)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4046" data-name="Line 4046" x2="140.908" transform="translate(666.996 782.373)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4047" data-name="Line 4047" y2="38.245" transform="translate(807.904 782.373)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-  <path id="Path_1554" data-name="Path 1554" d="M417.11,595.325h-76.5V557.08h76.5v38.245" transform="translate(-19.868 225.293)" fill="rgba(111,163,149,0.3)" fill-rule="evenodd"/>
+  <path id="Path_1554" data-name="Path 1554" d="M417.11,595.325h-76.5V557.08h76.5v38.245" transform="translate(-19.868 225.293)" fill="<?=$color4?>" fill-rule="evenodd"/>
   <line id="Line_4048" data-name="Line 4048" x1="76.499" transform="translate(320.743 820.618)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4049" data-name="Line 4049" y1="38.245" transform="translate(320.743 782.373)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4050" data-name="Line 4050" x2="76.499" transform="translate(320.743 782.373)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4051" data-name="Line 4051" y2="38.245" transform="translate(397.242 782.373)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-  <path id="Path_1555" data-name="Path 1555" d="M392.007,325.132h106.88v82.513H623.779v78.536H833.07V641.215l-269.747.012V617.044H526.932l.1-159.064L410.4,458.2l-.1-54.52-18.14.032-.151-78.583" transform="translate(1.006 131.085)" fill="rgba(111,163,149,0.3)" fill-rule="evenodd"/>
+  <path id="Path_1555" data-name="Path 1555" d="M392.007,325.132h106.88v82.513H623.779v78.536H833.07V641.215l-269.747.012V617.044H526.932l.1-159.064L410.4,458.2l-.1-54.52-18.14.032-.151-78.583" transform="translate(1.006 131.085)" fill="<?=$color4?>" fill-rule="evenodd"/>
   <line id="Line_4052" data-name="Line 4052" x2="106.88" transform="translate(393.013 456.217)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4053" data-name="Line 4053" y2="82.514" transform="translate(499.893 456.217)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4054" data-name="Line 4054" x2="124.892" transform="translate(499.893 538.73)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
@@ -372,7 +399,7 @@ if(isset($_GET["sold"])){ $color = "rgba(0,0,0,0.8)"; }
   <line id="Line_4063" data-name="Line 4063" x1="0.104" y1="54.52" transform="translate(411.304 534.768)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4064" data-name="Line 4064" x1="18.14" y2="0.032" transform="translate(393.164 534.768)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4065" data-name="Line 4065" x1="0.151" y1="78.583" transform="translate(393.013 456.217)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-  <path id="Path_1556" data-name="Path 1556" d="M517.753,422.494l-.1,177.194-112.735,0,.1-177.271,112.735.072" transform="translate(6.25 170.601)" fill="rgba(111,163,149,0.3)" fill-rule="evenodd"/>
+  <path id="Path_1556" data-name="Path 1556" d="M517.753,422.494l-.1,177.194-112.735,0,.1-177.271,112.735.072" transform="translate(6.25 170.601)" fill="<?=$color4?>" fill-rule="evenodd"/>
   <path id="Path_1865" data-name="Path 1865" d="M439.2,422.431l-.03,22.148H404.918l.03-22.158,34.253.009" transform="translate(123.115 327.72)" fill="rgba(111,163,149,0.3)" fill-rule="evenodd"/>
   <line id="Line_4066" data-name="Line 4066" x1="0.1" y2="167.12" transform="translate(523.904 593.091)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4067" data-name="Line 4067" x1="112.735" y2="0.004" transform="translate(411.169 760.211)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
@@ -382,19 +409,19 @@ if(isset($_GET["sold"])){ $color = "rgba(0,0,0,0.8)"; }
   <line id="Line_4071" data-name="Line 4071" y1="183.311" x2="0.112" transform="translate(411.161 588.998)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4072" data-name="Line 4072" x2="112.735" y2="0.068" transform="translate(411.272 588.998)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4073" data-name="Line 4073" x1="0.112" y2="183.239" transform="translate(523.896 589.065)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-  <path id="Path_1558" data-name="Path 1558" d="M437.5,617.4l-112.735,0,.139-233.63,112.735.072L437.5,617.4" transform="translate(-26.305 154.904)" fill="rgba(111,163,149,0.3)" fill-rule="evenodd"/>
+  <path id="Path_1558" data-name="Path 1558" d="M437.5,617.4l-112.735,0,.139-233.63,112.735.072L437.5,617.4" transform="translate(-26.305 154.904)" fill="<?=$color4?>" fill-rule="evenodd"/>
   <line id="Line_4074" data-name="Line 4074" x1="112.735" y2="0.004" transform="translate(298.458 772.304)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4075" data-name="Line 4075" y1="233.63" x2="0.139" transform="translate(298.458 538.679)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4076" data-name="Line 4076" x2="112.735" y2="0.072" transform="translate(298.597 538.679)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4077" data-name="Line 4077" x1="0.139" y2="233.554" transform="translate(411.193 538.75)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-  <path id="Path_1559" data-name="Path 1559" d="M591.74,407.717H470.878V325.132h84.63v8.052H591.74v74.534" transform="translate(33.041 131.085)" fill="rgba(111,163,149,0.3)" fill-rule="evenodd"/>
+  <path id="Path_1559" data-name="Path 1559" d="M591.74,407.717H470.878V325.132h84.63v8.052H591.74v74.534" transform="translate(33.041 131.085)" fill="<?=$color4?>" fill-rule="evenodd"/>
   <line id="Line_4078" data-name="Line 4078" x1="120.863" transform="translate(503.918 538.802)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4079" data-name="Line 4079" y1="82.585" transform="translate(503.918 456.217)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4080" data-name="Line 4080" x2="84.63" transform="translate(503.918 456.217)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4081" data-name="Line 4081" y2="8.052" transform="translate(588.549 456.217)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4082" data-name="Line 4082" x2="36.232" transform="translate(588.549 464.269)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4083" data-name="Line 4083" y2="74.534" transform="translate(624.781 464.269)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-  <path id="Path_1560" data-name="Path 1560" d="M415.4,407.653H324.862v-74.47h32.183v-8.052H415.4v82.521" transform="translate(-26.265 131.085)" fill="rgba(111,163,149,0.3)" fill-rule="evenodd"/>
+  <path id="Path_1560" data-name="Path 1560" d="M415.4,407.653H324.862v-74.47h32.183v-8.052H415.4v82.521" transform="translate(-26.265 131.085)" fill="<?=$color4?>" fill-rule="evenodd"/>
   <line id="Line_4084" data-name="Line 4084" x1="90.537" transform="translate(298.597 538.738)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4085" data-name="Line 4085" y1="74.47" transform="translate(298.597 464.269)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4086" data-name="Line 4086" x2="32.183" transform="translate(298.597 464.269)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
@@ -434,7 +461,7 @@ if(isset($_GET["sold"])){ $color = "rgba(0,0,0,0.8)"; }
   <line id="Line_4119" data-name="Line 4119" x1="74.483" transform="translate(63.066 411.921)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4120" data-name="Line 4120" x1="0.003" y1="34.254" transform="translate(63.063 377.667)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4121" data-name="Line 4121" x1="40.17" y2="0.053" transform="translate(22.893 377.667)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-  <path id="Path_1562" data-name="Path 1562" d="M562.767,43.117V351.1H542.634v8.052l-169.053.037-.028-109.46,44.392-.009-.124-206.6,144.946-.011" transform="translate(-6.489 16.543)" fill="rgba(113,216,44,0.3)" fill-rule="evenodd"/>
+  <path id="Path_1562" data-name="Path 1562" d="M562.767,43.117V351.1H542.634v8.052l-169.053.037-.028-109.46,44.392-.009-.124-206.6,144.946-.011" transform="translate(-6.489 16.543)" fill="<?=$color2?>" fill-rule="evenodd"/>
   <line id="Line_4122" data-name="Line 4122" y2="307.987" transform="translate(556.278 59.66)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4123" data-name="Line 4123" x1="20.133" transform="translate(536.145 367.647)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4124" data-name="Line 4124" y2="8.052" transform="translate(536.145 367.647)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
@@ -445,7 +472,7 @@ if(isset($_GET["sold"])){ $color = "rgba(0,0,0,0.8)"; }
   <line id="Line_4129" data-name="Line 4129" y1="0.011" x2="144.946" transform="translate(411.332 59.66)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4130" data-name="Line 4130" x2="15.402" y2="0.019" transform="translate(806.912 391.795)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4131" data-name="Line 4131" x2="0.351" y2="0.352" transform="translate(704.389 390.318)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-  <path id="Path_1563" data-name="Path 1563" d="M658.778,45.615l.024,154.878,44.288,0,.008,36.228-44.288,0,.024,124.871-66.45,0,.008-48.288,18.116,0,.008-76.614H606.49l0,28.182-92.646,0V45.626l40.262-.01V36.964h72.473v8.652h32.2" transform="translate(50.49 14.044)" fill="rgba(222,255,18,0.3)" fill-rule="evenodd"/>
+  <path id="Path_1563" data-name="Path 1563" d="M658.778,45.615l.024,154.878,44.288,0,.008,36.228-44.288,0,.024,124.871-66.45,0,.008-48.288,18.116,0,.008-76.614H606.49l0,28.182-92.646,0V45.626l40.262-.01V36.964h72.473v8.652h32.2" transform="translate(50.49 14.044)" fill="<?=$color3?>" fill-rule="evenodd"/>
   <line id="Line_4132" data-name="Line 4132" x2="0.024" y2="154.878" transform="translate(709.268 59.659)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4133" data-name="Line 4133" x2="44.288" y2="0.004" transform="translate(709.292 214.536)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4134" data-name="Line 4134" x2="0.008" y2="36.228" transform="translate(753.58 214.54)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
@@ -464,7 +491,7 @@ if(isset($_GET["sold"])){ $color = "rgba(0,0,0,0.8)"; }
   <line id="Line_4147" data-name="Line 4147" x2="72.473" transform="translate(604.592 51.008)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4148" data-name="Line 4148" y2="8.652" transform="translate(677.065 51.008)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4149" data-name="Line 4149" y1="0.001" x2="32.203" transform="translate(677.065 59.659)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-  <path id="Path_1564" data-name="Path 1564" d="M740.559,43.113V210.057l-76.467-.006,0-24.112h-4.026V198L619.8,198l-.024-154.874,120.783-.009" transform="translate(93.517 16.541)" fill="rgba(222,255,18,0.3)" fill-rule="evenodd"/>
+  <path id="Path_1564" data-name="Path 1564" d="M740.559,43.113V210.057l-76.467-.006,0-24.112h-4.026V198L619.8,198l-.024-154.874,120.783-.009" transform="translate(93.517 16.541)" fill="<?=$color3?>" fill-rule="evenodd"/>
   <line id="Line_4150" data-name="Line 4150" y2="44.234" transform="translate(834.076 59.654)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4151" data-name="Line 4151" y2="72.473" transform="translate(834.076 103.888)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4152" data-name="Line 4152" y2="50.238" transform="translate(834.076 176.361)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
@@ -475,7 +502,7 @@ if(isset($_GET["sold"])){ $color = "rgba(0,0,0,0.8)"; }
   <line id="Line_4157" data-name="Line 4157" x1="40.262" y1="0.003" transform="translate(713.317 214.537)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4158" data-name="Line 4158" x1="0.024" y1="154.874" transform="translate(713.293 59.663)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4159" data-name="Line 4159" y1="0.009" x2="120.783" transform="translate(713.293 59.654)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-  <path id="Path_1565" data-name="Path 1565" d="M619.8,184.848l44.292,0,0-20.149,76.61,0V309.769H619.827v0L619.8,184.848" transform="translate(93.526 65.922)" fill="rgba(222,255,18,0.3)" fill-rule="evenodd"/>
+  <path id="Path_1565" data-name="Path 1565" d="M619.8,184.848l44.292,0,0-20.149,76.61,0V309.769H619.827v0L619.8,184.848" transform="translate(93.526 65.922)" fill="<?=$color3?>" fill-rule="evenodd"/>
   <line id="Line_4160" data-name="Line 4160" y1="0.002" x2="44.292" transform="translate(713.325 250.768)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4161" data-name="Line 4161" x1="0.004" y1="20.149" transform="translate(757.614 230.619)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4162" data-name="Line 4162" y1="0.003" x2="76.61" transform="translate(757.614 230.616)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
@@ -484,7 +511,7 @@ if(isset($_GET["sold"])){ $color = "rgba(0,0,0,0.8)"; }
   <line id="Line_4165" data-name="Line 4165" x1="56.302" transform="translate(713.353 375.692)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4166" data-name="Line 4166" y1="0.005" transform="translate(713.353 375.687)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4167" data-name="Line 4167" x1="0.028" y1="124.917" transform="translate(713.325 250.77)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-  <path id="Path_1566" data-name="Path 1566" d="M513.84,201.917l96.672,0,0,40.38-22.142.009-.008,52.3h4.026l66.45,0v.045h4.03v0H546.05V286.6H513.84V201.917" transform="translate(50.49 81.039)" fill="rgba(222,255,18,0.3)" fill-rule="evenodd"/>
+  <path id="Path_1566" data-name="Path 1566" d="M513.84,201.917l96.672,0,0,40.38-22.142.009-.008,52.3h4.026l66.45,0v.045h4.03v0H546.05V286.6H513.84V201.917" transform="translate(50.49 81.039)" fill="<?=$color3?>" fill-rule="evenodd"/>
   <line id="Line_4168" data-name="Line 4168" y1="0.004" x2="96.672" transform="translate(564.33 282.952)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4169" data-name="Line 4169" x1="0.004" y2="40.38" transform="translate(660.997 282.952)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4170" data-name="Line 4170" x1="22.142" y2="0.009" transform="translate(638.855 323.332)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
@@ -503,63 +530,63 @@ if(isset($_GET["sold"])){ $color = "rgba(0,0,0,0.8)"; }
   <line id="Line_4182" data-name="Line 4182" x2="6.071" transform="translate(596.54 375.692)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4183" data-name="Line 4183" y2="8.052" transform="translate(596.54 367.639)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4184" data-name="Line 4184" x1="6.071" transform="translate(596.54 367.639)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-  <path id="Path_1568" data-name="Path 1568" d="M624.518,8.76V47.007H523.86V8.76H624.518" transform="translate(54.56 2.588)" fill="rgba(222,255,18,0.3)" fill-rule="evenodd"/>
+  <path id="Path_1568" data-name="Path 1568" d="M624.518,8.76V47.007H523.86V8.76H624.518" transform="translate(54.56 2.588)" fill="<?=$color3?>" fill-rule="evenodd"/>
   <line id="Line_4185" data-name="Line 4185" y1="38.247" transform="translate(679.078 11.348)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4186" data-name="Line 4186" x2="100.658" transform="translate(578.42 49.595)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4187" data-name="Line 4187" y2="38.247" transform="translate(578.42 11.348)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4188" data-name="Line 4188" x1="100.658" transform="translate(578.42 11.348)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-  <path id="Path_1569" data-name="Path 1569" d="M521.439,8.766V47.013H420.781V8.766H521.439" transform="translate(12.693 2.59)" fill="rgba(113,216,44,0.31)" fill-rule="evenodd"/>
+  <path id="Path_1569" data-name="Path 1569" d="M521.439,8.766V47.013H420.781V8.766H521.439" transform="translate(12.693 2.59)" fill="<?=$color2?>" fill-rule="evenodd"/>
   <line id="Line_4189" data-name="Line 4189" y1="38.247" transform="translate(534.132 11.356)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4190" data-name="Line 4190" x2="100.658" transform="translate(433.474 49.603)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4191" data-name="Line 4191" y2="38.247" transform="translate(433.474 11.356)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4192" data-name="Line 4192" x1="100.658" transform="translate(433.474 11.356)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-  <path id="Path_1570" data-name="Path 1570" d="M417.11,8.766V47.013h-76.5V8.766h76.5" transform="translate(-19.868 2.59)" fill="rgba(113,216,44,0.31)" fill-rule="evenodd"/>
+  <path id="Path_1570" data-name="Path 1570" d="M417.11,8.766V47.013h-76.5V8.766h76.5" transform="translate(-19.868 2.59)" fill="<?=$color2?>" fill-rule="evenodd"/>
   <line id="Line_4193" data-name="Line 4193" y1="38.247" transform="translate(397.242 11.356)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4194" data-name="Line 4194" x2="76.499" transform="translate(320.743 49.603)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4195" data-name="Line 4195" y2="38.247" transform="translate(320.743 11.356)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4196" data-name="Line 4196" x1="76.499" transform="translate(320.743 11.356)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-  <path id="Path_1571" data-name="Path 1571" d="M316.894,8.755V47H240.4V8.755h76.5" transform="translate(-60.572 2.586)" fill="rgba(255,192,20,0.3)" fill-rule="evenodd"/>
+  <path id="Path_1571" data-name="Path 1571" d="M316.894,8.755V47H240.4V8.755h76.5" transform="translate(-60.572 2.586)" fill="<?=$color?>" fill-rule="evenodd"/>
   <line id="Line_4197" data-name="Line 4197" y1="38.247" transform="translate(256.322 11.341)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4198" data-name="Line 4198" x2="76.498" transform="translate(179.824 49.588)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4199" data-name="Line 4199" y2="38.247" transform="translate(179.824 11.341)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4200" data-name="Line 4200" x1="76.498" transform="translate(179.824 11.341)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-  <path id="Path_1572" data-name="Path 1572" d="M243.7,8.755V47H143.044V8.755H243.7" transform="translate(-100.112 2.586)" fill="rgba(255,192,20,0.3)" fill-rule="evenodd"/>
+  <path id="Path_1572" data-name="Path 1572" d="M243.7,8.755V47H143.044V8.755H243.7" transform="translate(-100.112 2.586)" fill="<?=$color?>" fill-rule="evenodd"/>
   <line id="Line_4201" data-name="Line 4201" y1="38.247" transform="translate(143.588 11.341)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4202" data-name="Line 4202" x2="100.656" transform="translate(42.932 49.588)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4203" data-name="Line 4203" y2="38.247" transform="translate(42.932 11.341)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4204" data-name="Line 4204" x1="100.656" transform="translate(42.932 11.341)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-  <path id="Path_1573" data-name="Path 1573" d="M316.812,557.083v38.249h-76.5V557.083h76.5" transform="translate(-60.605 225.294)" fill="rgba(108,108,108,0.29)" fill-rule="evenodd"/>
+  <path id="Path_1573" data-name="Path 1573" d="M316.812,557.083v38.249h-76.5V557.083h76.5" transform="translate(-60.605 225.294)" fill="<?=$color5?>" fill-rule="evenodd"/>
   <line id="Line_4205" data-name="Line 4205" y1="38.249" transform="translate(256.206 782.377)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4206" data-name="Line 4206" x2="76.498" transform="translate(179.709 820.626)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4207" data-name="Line 4207" y2="38.249" transform="translate(179.709 782.377)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4208" data-name="Line 4208" x1="76.498" transform="translate(179.709 782.377)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-  <path id="Path_1574" data-name="Path 1574" d="M243.7,557.083v38.249H143.044V557.083H243.7" transform="translate(-100.112 225.294)" fill="rgba(108,108,108,0.29)" fill-rule="evenodd"/>
+  <path id="Path_1574" data-name="Path 1574" d="M243.7,557.083v38.249H143.044V557.083H243.7" transform="translate(-100.112 225.294)" fill="<?=$color5?>" fill-rule="evenodd"/>
   <line id="Line_4209" data-name="Line 4209" y1="38.249" transform="translate(143.588 782.377)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4210" data-name="Line 4210" x2="100.656" transform="translate(42.932 820.626)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4211" data-name="Line 4211" y2="38.249" transform="translate(42.932 782.377)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4212" data-name="Line 4212" x1="100.656" transform="translate(42.932 782.377)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-  <path id="Path_1575" data-name="Path 1575" d="M433.572,43.118l.124,206.608-40.366.008,0-11.256-68.463.014V43.126l108.709-.008" transform="translate(-26.265 16.543)" fill="rgba(113,216,44,0.3)" fill-rule="evenodd"/>
+  <path id="Path_1575" data-name="Path 1575" d="M433.572,43.118l.124,206.608-40.366.008,0-11.256-68.463.014V43.126l108.709-.008" transform="translate(-26.265 16.543)" fill="<?=$color2?>" fill-rule="evenodd"/>
   <line id="Line_4213" data-name="Line 4213" x2="0.124" y2="206.608" transform="translate(407.306 59.661)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4214" data-name="Line 4214" x1="40.366" y2="0.008" transform="translate(367.064 266.269)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4215" data-name="Line 4215" x1="0.004" y1="11.256" transform="translate(367.06 255.021)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4216" data-name="Line 4216" x1="68.463" y2="0.014" transform="translate(298.597 255.021)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4217" data-name="Line 4217" y1="195.366" transform="translate(298.597 59.669)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4218" data-name="Line 4218" y1="0.008" x2="108.709" transform="translate(298.597 59.661)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-  <path id="Path_1576" data-name="Path 1576" d="M393.325,184.921l.032,116.641H357.045v-8.052H324.862V184.923l68.463,0" transform="translate(-26.265 74.138)" fill="rgba(113,216,44,0.3)" fill-rule="evenodd"/>
+  <path id="Path_1576" data-name="Path 1576" d="M393.325,184.921l.032,116.641H357.045v-8.052H324.862V184.923l68.463,0" transform="translate(-26.265 74.138)" fill="<?=$color2?>" fill-rule="evenodd"/>
   <line id="Line_4219" data-name="Line 4219" x2="0.032" y2="116.641" transform="translate(367.06 259.059)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4220" data-name="Line 4220" x1="36.312" transform="translate(330.78 375.699)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4221" data-name="Line 4221" y1="8.052" transform="translate(330.78 367.647)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4222" data-name="Line 4222" x1="32.183" transform="translate(298.597 367.647)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4223" data-name="Line 4223" y1="108.586" transform="translate(298.597 259.061)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4224" data-name="Line 4224" y1="0.002" x2="68.463" transform="translate(298.597 259.059)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-  <path id="Path_1577" data-name="Path 1577" d="M351.686,43.111v195.37l-76.43.015.011,11.316-36.214.037L238.928,43.12l112.758-.009" transform="translate(-61.168 16.54)" fill="rgba(255,200,18,0.3)" fill-rule="evenodd"/>
+  <path id="Path_1577" data-name="Path 1577" d="M351.686,43.111v195.37l-76.43.015.011,11.316-36.214.037L238.928,43.12l112.758-.009" transform="translate(-61.168 16.54)" fill="<?=$color?>" fill-rule="evenodd"/>
   <line id="Line_4225" data-name="Line 4225" y2="195.37" transform="translate(290.517 59.651)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4226" data-name="Line 4226" x1="76.43" y2="0.015" transform="translate(214.088 255.021)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4227" data-name="Line 4227" x2="0.011" y2="11.316" transform="translate(214.088 255.037)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4228" data-name="Line 4228" x1="36.214" y2="0.037" transform="translate(177.884 266.352)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4229" data-name="Line 4229" x1="0.124" y1="206.729" transform="translate(177.76 59.66)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4230" data-name="Line 4230" y1="0.009" x2="112.758" transform="translate(177.76 59.651)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-  <path id="Path_1578" data-name="Path 1578" d="M341.191,184.922V293.494H297.019v8.052H264.876l-.11-116.622,76.426,0" transform="translate(-50.674 74.138)" fill="rgba(255,200,18,0.3)" fill-rule="evenodd"/>
+  <path id="Path_1578" data-name="Path 1578" d="M341.191,184.922V293.494H297.019v8.052H264.876l-.11-116.622,76.426,0" transform="translate(-50.674 74.138)" fill="<?=$color?>" fill-rule="evenodd"/>
   <line id="Line_4231" data-name="Line 4231" y2="108.572" transform="translate(290.517 259.06)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4232" data-name="Line 4232" x1="44.173" transform="translate(246.345 367.632)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4233" data-name="Line 4233" y2="8.052" transform="translate(246.345 367.632)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
@@ -573,7 +600,7 @@ if(isset($_GET["sold"])){ $color = "rgba(0,0,0,0.8)"; }
   <line id="Line_4240" data-name="Line 4240" x2="32.219" transform="translate(214.126 456.225)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4241" data-name="Line 4241" x2="0.004" y2="8.056" transform="translate(246.345 456.225)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4242" data-name="Line 4242" y1="0.004" x2="44.276" transform="translate(246.349 464.277)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-  <path id="Path_1580" data-name="Path 1580" d="M351.714,414.375V597.583l-12.078.008,0,12.081-100.7-.008.124-206.832,36.214.04-.011,11.428,76.458.076" transform="translate(-61.168 162.644)" fill="rgba(87,87,87,0.3)" fill-rule="evenodd"/>
+  <path id="Path_1580" data-name="Path 1580" d="M351.714,414.375V597.583l-12.078.008,0,12.081-100.7-.008.124-206.832,36.214.04-.011,11.428,76.458.076" transform="translate(-61.168 162.644)" fill="<?=$color5?>" fill-rule="evenodd"/>
   <line id="Line_4243" data-name="Line 4243" y2="183.207" transform="translate(290.545 577.02)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4244" data-name="Line 4244" x1="12.077" y2="0.008" transform="translate(278.468 760.227)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   <line id="Line_4245" data-name="Line 4245" x1="0.004" y2="12.082" transform="translate(278.464 760.235)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>

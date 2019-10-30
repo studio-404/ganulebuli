@@ -50,7 +50,7 @@ class file
 			":type"=>$args['file_attach_type'], 
 			":page_id"=>0, 
 			":file_path"=>$file_path,  
-			":file_size"=>$file_size  
+			":file_size"=>(int)$file_size  
 		));
 		if($prepare2->rowCount()){
 			return $idx;
@@ -90,12 +90,12 @@ class file
 		$prepare2->execute(array(
 			"datex"=>time(), 
 			"idx"=>$idx, 
-			"cid"=>$args['item'], 
+			"cid"=>(int)$args['item'], 
 			"random"=>$args['random'], 
 			"type"=>$args['file_attach_type'], 
 			"page_id"=>0, 
 			"file_path"=>$file_path,  
-			"file_size"=>$file_size  
+			"file_size"=>(int)$file_size  
 		));
 		if($prepare2->rowCount()){
 			return $idx;

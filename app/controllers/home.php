@@ -84,6 +84,13 @@ class Home extends Controller
 			"type"=>"aboutus"
 		));
 
+		$db_flatsfrom54 = new Database("modules", array(
+			"method"=>"selectModuleByType", 
+			"type"=>"flatsfrom54",
+			'order'=>"CAST(`usefull`.`title` AS UNSIGNED INTEGER)",
+			'by'=>"ASC"
+		));
+
 		$db_floors1 = new Database("page", array(
 			"method"=>"selecteByCid",
 			"cid"=>136,
@@ -113,6 +120,7 @@ class Home extends Controller
 			"conditions"=>$db_conditions->getter(), 
 			"aboutus"=>$db_aboutus->getter(), 
 			"pageData"=>$db_pagedata->getter(),
+			"flatsfrom54"=>$db_flatsfrom54->getter(),
 			"floor1"=>$db_floors1->getter(),
 			"floor2"=>$db_floors2->getter()
 		]);

@@ -433,11 +433,20 @@ class editModules
 					"name"=>$fetch["additional10"]["title"],
 					"require"=>""
 				));
-				$form .= functions\makeForm::inputText(array(
-					"placeholder"=>$fetch["additional10"]["title"], 
-					"id"=>"additional10", 
+				// $form .= functions\makeForm::inputText(array(
+				// 	"placeholder"=>$fetch["additional10"]["title"], 
+				// 	"id"=>"additional10", 
+				// 	"name"=>"additional10",
+				// 	"value"=>$output['additional10']
+				// ));
+
+				$form .= functions\makeForm::select(array(
+					"id"=>"additional10",
 					"name"=>"additional10",
-					"value"=>$output['additional10']
+					"choose"=>"აირჩიეთ",
+					"options"=>(array)$fetch["additional10"]["options"],
+					"selected"=>$output['additional10'],
+					"disabled"=>"false"
 				));
 			}else{
 				$form .= functions\makeForm::inputHidden(array(

@@ -22,10 +22,11 @@ class makeForm
 
 	public static function select($args)
 	{
+		$name = (isset($args["name"])) ? "name='".$args["name"]."'" : "";
 		$disabled = ($args["disabled"]=="true") ? "disabled" : "";
 		$multiple = (isset($args["multiple"]) && $args["multiple"]=="true") ? " multiple" : "";
 		$out = "<div class=\"input-field\">";
-		$out .= "<select id=\"".$args['id']."\" ".$disabled.$multiple.">";
+		$out .= "<select id=\"".$args['id']."\" ".$name.$disabled.$multiple.">";
 		if($args['selected']=="false"){
 			$out .= "<option value=\"\" disabled selected>".$args['choose']."</option>";
 		}else{

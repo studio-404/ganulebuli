@@ -13,6 +13,20 @@ echo $data['headerModule'];// assets
 	<img src="/public/img/web/loader.gif" alt="" />
 </div>
 
+<div class="custom-modal-popup">
+	<div class="title">
+		<span id="flat-title">N/A</span> სართული <span id="floor-title">0</span>
+	</div>
+	<p>აირჩიეთ სასურველი ბინის ზომა</p>
+	<div class="image" id="g-image-container">
+		<img src="/public/img/web/loader2.gif" alt="" style="margin: 20px auto; width: 56px; height: 56px; border:0; outline: 0; display: block;" id="g-loader-img" />
+	</div>
+	
+	<div class="close2">
+		<i onclick="closeFloor()"></i>
+	</div>
+</div>
+
 <div class="content">
 	<div id="go-top" style="position: absolute; top: 0; left: 0; width: 100%; height: 1px; opacity: 0;"></div>
 
@@ -173,44 +187,20 @@ echo $data['headerModule'];// assets
 	</section>
 
 	<section class="flats" id="flats">
-		<h2>ბინები 55 კვ მეტრიდან</h2>
+		<h2>ბინები 54 კვ მეტრიდან</h2>
 		<div class="row">
+			<?php foreach($data["flatsfrom54"] as $value):  ?>
+
 			<div class="col-md-3 col-sm-12">
 				<div class="boxphoto">
 					<div class="in">
-						<div class="flats-photo" style="background-image: url('/public/img/web/render.jpg');">
-							<p>55 კვბ</p>
-						</div>
+						<a href="<?=$value["url"]?>" class="flats-photo" style="background-image: url('<?=$value["photo"]?>');">
+							<p><?=$value["title"]?></p>
+						</a>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-3 col-sm-12">
-				<div class="boxphoto">
-					<div class="in">
-						<div class="flats-photo" style="background-image: url('/public/img/web/render.jpg');">
-							<p>60 კვბ</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-12">
-				<div class="boxphoto">
-					<div class="in">
-						<div class="flats-photo" style="background-image: url('/markup/img/render.jpg');">
-							<p>65 კვბ</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-12">
-				<div class="boxphoto">
-					<div class="in">
-						<div class="flats-photo" style="background-image: url('/public/img/web/render.jpg');">
-							<p>70 კვბ</p>
-						</div>
-					</div>
-				</div>
-			</div>
+			<?php endforeach; ?>
 		</div>
 	</section>
 
@@ -223,44 +213,13 @@ echo $data['headerModule'];// assets
 			</div>
 			<map name="features">
 				<?php foreach($data["floor1"] as $value): ?>
-				<area shape="poly" coords="<?=$value["cssclass"]?>" class="masterTooltip" size="<i>A</i> <?=$value["title"]?>" onclick="openFloor(<?=$value["idx"]?>)" /> 
+				<area shape="poly" coords="<?=$value["cssclass"]?>" class="masterTooltip" size="<i>A</i> სართული <?=(int)$value["title"]?>" onclick="openFloor('A', '<?=(int)$value["title"]?>',<?=$value["idx"]?>)" /> 
 				<?php endforeach; ?>
 
 				<?php foreach($data["floor2"] as $value): ?>
-				<area shape="poly" coords="<?=$value["cssclass"]?>" class="masterTooltip" size="<i>B</i> <?=$value["title"]?>" onclick="openFloor(<?=$value["idx"]?>)" /> 
+				<area shape="poly" coords="<?=$value["cssclass"]?>" class="masterTooltip" size="<i>B</i> სართული <?=(int)$value["title"]?>" onclick="openFloor('B','<?=(int)$value["title"]?>',<?=$value["idx"]?>)" /> 
 				<?php endforeach; ?>
 			</map>
-		</div>
-
-		<div class="the2">
-			<div class="title">A სართული <span id="floor-title">0</span></div>
-			<p>აირჩიეთ სასურველი ბინის ზომა</p>
-			<div class="image">
-				<div class="img">
-					<img src="/public/img/web/floor.php?sold=1,2,3" alt="" usemap="#features2" id="maphilighted2" class="maphilighted" style="opacity: 1e-10; position: absolute; left: calc(50% - 300px); top:170px; padding: 0px; border: 0px; width:600px; height: 578px;" />
-				</div>
-				<map name="features2">	
-					<area shape="poly" coords="10,37,30,35,30,9,99,9,100,36,125,37,127,8,178,9,179,37,203,40,204,263,171,263,103,262,104,290,39,284,39,265,11,264" /> 
-
-					<area shape="poly" coords="223,9,274,10,273,38,301,37,300,10,369,9,367,37,387,39,388,264,204,263,203,38,222,37" /> 
-
-					<area shape="poly" coords="581,38,469,35,469,8,401,9,401,38,388,39,389,264,582,261" /> 
-
-					<area shape="poly" coords="12,311,9,539,29,539,28,566,98,566,97,539,124,539,125,567,177,566,177,534,203,535,205,310,103,310,103,284,41,286,40,310" /> 
-
-					<area shape="poly" coords="578,423,581,538,558,539,559,567,461,568,460,537,275,539,275,568,222,567,222,535,204,536,206,312,437,313,434,426" /> 
-				</map>
-
-				<div class="kv kv1">55<sup>კვმ</sup></div>
-				<div class="kv kv2">55<sup>კვმ</sup></div>
-				<div class="kv kv3">75<sup>კვმ</sup></div>
-				<div class="kv kv4">57<sup>კვმ</sup></div>
-				<div class="kv kv5">102<sup>კვმ</sup></div>
-			</div>
-			
-			<div class="close2">
-				<i onclick="closeFloor()"></i>
-			</div>
 		</div>
 	</section>
 
@@ -441,32 +400,6 @@ echo $data['headerModule'];// assets
 		});
 
 		$('#maphilighted').imageMapResize();
-
-		$("#maphilighted2").maphilight({
-			fill: true,
-			fillColor: '000000',
-			fillOpacity: 0.10,
-			stroke: false,
-			strokeColor: '',
-			strokeOpacity: 0,
-			strokeWidth: 0,
-			fade: true,
-			alwaysOn: false,
-			neverOn: false,
-			groupBy: false,
-			wrapClass: true,
-			// plenty of shadow:
-			shadow: false,
-			shadowX: 0,
-			shadowY: 0,
-			shadowRadius: 6,
-			shadowColor: '000000',
-			shadowOpacity: 0.8,
-			shadowPosition: 'outside',
-			shadowFrom: false
-		});
-
-		$('#maphilighted2').imageMapResize();
 
 		$('.masterTooltip').hover(function(){ 
 			var Size = $(this).attr('Size');

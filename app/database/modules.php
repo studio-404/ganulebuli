@@ -162,6 +162,7 @@ class modules
 	{
 		$fetch = "[]";
 		$orderBy = (isset($args["order"]) && isset($args["by"])) ? sprintf(" ORDER BY %s %s", $args["order"], $args["by"]) : "";
+		$orderByJson = (isset($args["order"]) && isset($args["by"])) ? $args["order"].$args["by"] : "";
 		$limit = (isset($args['from']) && isset($args['num'])) ? " LIMIT ".$args["from"].",".$args['num'] : "";
 		$from = (isset($args["from"])) ? $args["from"] : 0;
 		$lang = (isset($args['lang'])) ? $args['lang'] : $_SESSION["LANG"];
@@ -169,7 +170,9 @@ class modules
 		$jsonAddon = (isset($args["jsonAddon"])) ? $args["jsonAddon"] : '';
 		// $visibility = (isset($args["visibility"])) ? 0 : '';
 		$num = (isset($args['num'])) ? $args['num'] : 0;
-		$json = Config::CACHE."module_type_".$num.str_replace(array("-"," "), "", implode("_",$_SESSION['URL']))."_".$lang.$from.$args['type'].$jsonAddon.".json";
+
+		$orderByJson = str_replace(array("`","."), "", $orderByJson);
+		$json = Config::CACHE."module_type_".$num.str_replace(array("-"," "), "", implode("_",$_SESSION['URL']))."_".$lang.$from.$args['type'].$jsonAddon.$orderByJson.".json";
 
 
 		if(file_exists($json)){
@@ -465,10 +468,10 @@ class modules
 					$filePerpare->execute(array(
 					":datex"=>time(), 
 					":idx"=>$idx, 
-					":cid"=>$cid, 
+					":cid"=>(int)$cid, 
 					":page_id"=>$args["idx"], 
 					":file_path"=>$path, 
-					":file_size"=>$file_size,
+					":file_size"=>(int)$file_size,
 					":lang"=>$lang,
 					":type"=>$type,
 					":position"=>$fileposition					

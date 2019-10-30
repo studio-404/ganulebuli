@@ -1,10 +1,76 @@
-var openFloor = (floor) => {
-	document.getElementById("floor-title").innerHTML = floor;
-	document.getElementsByClassName("the2")[0].classList.add("the2-open");
+var ajax = function(file, ajaxUrl){
+	var xhttp = new XMLHttpRequest();
+	xhttp.open("POST", "/ge/ajax/index/"+file, true);
+	xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=UTF-8');
+	xhttp.send(ajaxUrl);
+	return xhttp;
+};
+
+var openFloor = (flat, title, floor) => {
+	document.getElementById("flat-title").innerHTML = flat;
+	document.getElementById("floor-title").innerHTML = title;
+
+
+	document.getElementsByClassName("content")[0].classList.remove("content-up");
+	document.getElementsByClassName("custom-modal-popup")[0].style.display = "block";
+	setTimeout(function(){
+		var xhttp = ajax("loadfloor", "flat="+flat+"&floor="+floor);
+			xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				var responseText = JSON.parse(this.responseText);
+
+				if(responseText.Error.Code==1){
+					console.log(responseText.Error.Text);
+				}else{
+					document.getElementById("g-image-container").innerHTML = responseText.Success.Html;
+
+					$("#maphilighted2").maphilight({
+						fill: true,
+						fillColor: '000000',
+						fillOpacity: 0.10,
+						stroke: false,
+						strokeColor: '',
+						strokeOpacity: 0,
+						strokeWidth: 0,
+						fade: true,
+						alwaysOn: false,
+						neverOn: false,
+						groupBy: false,
+						wrapClass: true,
+						// plenty of shadow:
+						shadow: false,
+						shadowX: 0,
+						shadowY: 0,
+						shadowRadius: 6,
+						shadowColor: '000000',
+						shadowOpacity: 0.8,
+						shadowPosition: 'outside',
+						shadowFrom: false
+					});
+
+					$('#maphilighted2').imageMapResize();
+
+					$("#maphilighted2").on('load', function() { 
+    					$(".kv-box").show();
+    					document.getElementsByClassName("custom-modal-popup")[0].classList.add("show-up");
+    					setTimeout(function(){
+    						document.getElementsByClassName("content")[0].classList.add("content-up");
+    					}, 1000);    					
+    				});					
+				}
+				
+			}
+		};
+
+	}, 200);	
 };
 
 var closeFloor = () => {
-	document.getElementsByClassName("the2")[0].classList.remove("the2-open");
+	document.getElementsByClassName("custom-modal-popup")[0].classList.remove("show-up");
+	setTimeout(function(){
+		document.getElementsByClassName("custom-modal-popup")[0].style.display = "none";	
+	}, 500);
+	
 };
 
 var detectmob = () => { 

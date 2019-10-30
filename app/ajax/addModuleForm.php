@@ -398,12 +398,16 @@ class addModuleForm
 				"name"=>$fetch["additional10"]["title"],
 				"require"=>""
 			));
-			$form .= functions\makeForm::inputText(array(
-				"placeholder"=>$fetch["additional10"]["title"], 
-				"id"=>"additional10", 
+
+			$form .= functions\makeForm::select(array(
+				"id"=>"additional10",
 				"name"=>"additional10",
-				"value"=>$fetch["additional10"]["defaultValue"]
+				"choose"=>"აირჩიეთ",
+				"options"=>(array)$fetch["additional10"]["options"],
+				"selected"=>1,
+				"disabled"=>"false"
 			));
+
 		}else{
 			$form .= functions\makeForm::inputHidden(array(
 				"id"=>"additional10", 

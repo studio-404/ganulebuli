@@ -238,25 +238,13 @@ var openModules = function(mods, lang){
 			// $(".modal-message-box").html(obj.Error.Text);
 		}else if(obj.Success.Code==1){
 			// $(".modal-message-box").html(obj.Success.Text);
-			$(".modal .modal-content").html(obj.Success.Text);
-			
+			$(".modal .modal-content").html(obj.Success.Text);			
 		}	
 	});
 
 	$(".modal .modal-footer").html("");
 	$('.modal').openModal();
-
-	// var modsSplitted = mods.split(",");
-	// var html = "<h4>მოდულები</h4>";
-	// html += "<ul class=\"collection\">";
-	// for(var i=0; i<modsSplitted.length; i++){
-	// 	html += "<li class=\"collection-item\"><a href=\"/ge/dashboard/modules/"+modsSplitted[i]+"\" style=\"color: #2bbbad; font-family: 'NotoRegular'\">"+modsSplitted[i]+"</a></li>";
-	// }
-	// html += "</ul>";
-
-	// $(".modal .modal-content").html(html);
-	// $(".modal .modal-footer").html("");
-	// $('.modal').openModal();
+	scrollTop();
 };
 
 var formPageEdit = function(idx, lang){
@@ -610,6 +598,10 @@ var add_module = function(moduleSlug, lang){
 		    	items: ".imageItem",
 				update: function( event, ui ) {  }
 			});
+			if($("#additional10").attr("type") !=="hidden"){
+				$("#additional10").material_select();
+			}
+			console.log("x");
 			tiny(".tinymceTextArea");
 		}
 	});
@@ -874,7 +866,9 @@ var editModules = function(idx, lang){
 					}				
 				}
 			});
-
+			if($("#additional10").attr("type") !=="hidden"){
+				$("#additional10").material_select();
+			}
 			tiny(".tinymceTextArea");			
 		}
 	});
@@ -1000,6 +994,9 @@ var formModuleEdit = function(idx, lang){
 			}else if(obj.Success.Code==1){
 				$(".modal-message-box").html(obj.Success.Text);
 				scrollTop();
+				setTimeout(function(){
+					location.reload();
+				}, 2000);
 			}else{
 				$(".modal-message-box").html("E");
 			}
@@ -1128,6 +1125,10 @@ var formModuleAdd = function(moduleSlug, lang){
 				$(".modal-message-box").html("E5");
 			}
 			scrollTop();
+
+			setTimeout(function(){
+				location.reload();
+			}, 1500);
 		});
 	}
 };
