@@ -300,6 +300,41 @@ class modules
 		return $fetch;
 	}
 
+	private function selectByTypeTitle($args)
+	{
+		$fetch = array();
+		
+		$select = "SELECT 
+		(SELECT 
+			`photos`.`path` 
+			FROM `photos` 
+			WHERE 
+			`photos`.`parent`=`usefull`.`idx` AND 
+			`photos`.`type`=`usefull`.`type` AND 
+			`photos`.`lang`=`usefull`.`lang` AND 
+			`photos`.`status`!=:one 
+			ORDER BY `photos`.`id` ASC LIMIT 1
+		) AS photo,
+		`usefull`.* 
+		FROM 
+		`usefull` 
+		WHERE 
+		`usefull`.`title` LIKE '%".$args["title"]."%' AND 
+		`usefull`.`type`=:type AND 
+		`usefull`.`lang`=:lang AND 
+		`usefull`.`status`!=:one";
+		$prepare = $this->conn->prepare($select); 
+		$prepare->execute(array(
+			":type"=>$args['type'], 
+			":lang"=>$args['lang'], 
+			":one"=>1
+		));
+		if($prepare->rowCount()){
+			$fetch = $prepare->fetch(PDO::FETCH_ASSOC);
+		}
+		return $fetch;
+	}
+
 	private function selectByIdAndType($args)
 	{
 		require_once("app/functions/request.php");

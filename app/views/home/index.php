@@ -98,12 +98,10 @@ echo $data['headerModule'];// assets
 				<li class="active"><a href="/<?=$_SESSION["LANG"]?>/home">მთავარი</a></li>
 				<li>
 					<a href="/<?=$_SESSION["LANG"]?>/flats">ბინები</a>
-					 <ul class="sub">
-					 	<li><a href="#">ბინა 50კვ</a></li>
-					 	<li><a href="#">ბინა 55კვ</a></li>
-					 	<li><a href="#">ბინა 60კვ</a></li>
-					 	<li><a href="#">ბინა 65კვ</a></li>
-					 	<li><a href="#">ბინა 70კვ</a></li>
+					<ul class="sub">
+					 	<?php foreach($data["flatsfrom54"] as $value): ?>
+					 	<li><a href="<?=$value["url"]?>"><?=$value["title"]?></a></li>
+					 	<?php endforeach; ?>
 					 </ul>
 				</li>
 				<li><a href="/<?=$_SESSION["LANG"]?>/construction">მშენებლობა</a></li>

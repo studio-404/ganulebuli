@@ -29,10 +29,10 @@ echo $data['headerModule'];// assets
 <div class="content">
 	<div id="go-top" style="position: absolute; top: 0; left: 0; width: 100%; height: 1px; opacity: 0;"></div>
 
-	<section class="slider-box inside-image" style="background-image: url('/public/img/web/ios.png');">
+	<section class="slider-box inside-image" style="background-image: url('<?=strip_tags($data["cover"]["photo"])?>');">
 		<div class="inside-title">
 			<h1>ბინები</h1>
-			<p>55 კვმ</p>
+			<p><?=strip_tags($data["fetch"]["classname"])?> კვმ</p>
 		</div>
 	</section>
 	
@@ -68,11 +68,9 @@ echo $data['headerModule'];// assets
 				<li>
 					<a href="/<?=$_SESSION["LANG"]?>/flats" style="color:white; opacity: 1">ბინები</a>
 					 <ul class="sub">
-					 	<li><a href="#">ბინა 50კვ</a></li>
-					 	<li><a href="#">ბინა 55კვ</a></li>
-					 	<li><a href="#">ბინა 60კვ</a></li>
-					 	<li><a href="#">ბინა 65კვ</a></li>
-					 	<li><a href="#">ბინა 70კვ</a></li>
+					 	<?php foreach($data["flatsfrom54"] as $value): ?>
+					 	<li><a href="<?=$value["url"]?>"><?=$value["title"]?></a></li>
+					 	<?php endforeach; ?>
 					 </ul>
 				</li>
 				<li><a href="/<?=$_SESSION["LANG"]?>/construction">მშენებლობა</a></li>
@@ -80,32 +78,27 @@ echo $data['headerModule'];// assets
 		</nav>
 	</header>
 
-	<section class="yourhouse inside-flat-description" id="yourhouse">
+	<section class="yourhouse inside-flat-description" id="yourhouse" style="min-height: auto;">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-5 col-sm-12">
 					<h2>ბინის შესახებ</h2>
-					<p>მშენებლობა უსაფთხოება და ამბავიმშენებლობა უსაფთხოება და ამბავილორემ იპსუმ ლორენბავილორემ იპსუმ ლორენმშენებლობა უსაფთხოება და ამბავიმშენებლობა უსაფთხოება და ამბავილორემ იპსუმ ლორენბავილორემ იპსუმ ლორენ</p>
+					<p><?=strip_tags($data["fetch"]["description"])?></p>
 				</div>
 				<div class="col-md-7 col-sm-12">					
 					<div class="inside-form">
 						<div class="row">
 							<div class="col-md-3 col-sm-6">
-								<h3>სრული ფართი</h3>
-								<p>55 კვმ</p>
-							</div>
-
-							<div class="col-md-3 col-sm-6">
 								<h3>ბინის კატეგორია</h3>
-								<p>2 საძინებელი</p>
+								<p><?=strip_tags($data["fetch"]["url"])?></p>
 							</div>
 
 							<div class="col-md-3 col-sm-6">
-								<h3>ბლოგი</h3>
+								<h3>ბლოკი</h3>
 								<div class="inside-select">
-									<select class="inside-select block">
-										<option value="a">A</option>
-										<option value="b">B</option>
+									<select class="inside-select block gs-block">
+										<option value="a"<?=($data["fetch"]["type"][0]=="a") ? ' selected="selected"' : ''?>>A</option>
+										<option value="b"<?=($data["fetch"]["type"][0]=="b") ? ' selected="selected"' : ''?>>B</option>
 									</select>
 									<i></i>
 								</div>
@@ -114,15 +107,47 @@ echo $data['headerModule'];// assets
 							<div class="col-md-3 col-sm-6">
 								<h3>სართული</h3>
 								<div class="inside-select">
-									<select class="inside-select floor">
-										<option value="1">1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-										<option value="4">4</option>
+									<select class="inside-select floor gs-floor">
+										<?php if($data["fetch"]["type"][0]=="a"): ?>
+										<option value="142"<?=($data["fetch"]["type"][1]=="2") ? ' selected="selected"' : ''?>>2</option>
+										<option value="143"<?=($data["fetch"]["type"][1]=="3") ? ' selected="selected"' : ''?>>3</option>
+										<option value="144"<?=($data["fetch"]["type"][1]=="4") ? ' selected="selected"' : ''?>>4</option>
+										<option value="145"<?=($data["fetch"]["type"][1]=="5") ? ' selected="selected"' : ''?>>5</option>
+										<option value="146"<?=($data["fetch"]["type"][1]=="6") ? ' selected="selected"' : ''?>>6</option>
+										<option value="147"<?=($data["fetch"]["type"][1]=="7") ? ' selected="selected"' : ''?>>7</option>
+										<option value="148"<?=($data["fetch"]["type"][1]=="8") ? ' selected="selected"' : ''?>>8</option>
+										<?php endif; ?>
+
+										<?php if($data["fetch"]["type"][0]=="b"): ?>
+										<option value="149"<?=($data["fetch"]["type"][1]=="2") ? ' selected="selected"' : ''?>>2</option>
+										<option value="150"<?=($data["fetch"]["type"][1]=="3") ? ' selected="selected"' : ''?>>3</option>
+										<option value="151"<?=($data["fetch"]["type"][1]=="4") ? ' selected="selected"' : ''?>>4</option>
+										<option value="152"<?=($data["fetch"]["type"][1]=="5") ? ' selected="selected"' : ''?>>5</option>
+										<option value="153"<?=($data["fetch"]["type"][1]=="6") ? ' selected="selected"' : ''?>>6</option>
+										<option value="154"<?=($data["fetch"]["type"][1]=="7") ? ' selected="selected"' : ''?>>7</option>
+										<option value="155"<?=($data["fetch"]["type"][1]=="8") ? ' selected="selected"' : ''?>>8</option>
+										<?php endif; ?>
 									</select>
 									<i></i>
 								</div>
 							</div>
+
+							<div class="col-md-3 col-sm-6">
+								<h3>სრული ფართი</h3>
+								<div class="inside-select">
+									<select class="inside-select room gs-room">
+										<?php 
+										$kvm = strip_tags($data["fetch"]["classname"]);
+										foreach($data["floorlist"] as $value): ?>
+									 	<option value="<?=$value["idx"]?>" <?php echo ($value["idx"]==$data["apartment"]) ? 'selected="selected"' : ''; ?>><?=$value["classname"]?></option>
+									 	<?php endforeach; ?>
+									</select>
+									<i></i>
+								</div>
+							</div>
+							
+
+							
 						</div>
 					</div>
 
@@ -136,15 +161,9 @@ echo $data['headerModule'];// assets
 			<div class="col-md-6 col-sm-12">
 				<h2>3D ხედი ბინაზე</h2>
 
-				<div class="room-render">
-					<div class="the-rander" style="background-image: url('/public/img/web/room.png');">
-						<div class="num num1">1</div>
-						<div class="num num2">2</div>
-						<div class="num num3">3</div>
-						<div class="num num4">4</div>
-						<div class="num num5">5</div>
-						<div class="num num6">6</div>
-					</div>
+				<div class="room-render">					
+					<object class="svgClass" data="/public/filemanager/flats/<?=strip_tags($data["fetch"]["classname"])?>.svg" type="image/svg+xml">
+					</object>
 				</div>
 			</div>
 
@@ -156,13 +175,133 @@ echo $data['headerModule'];// assets
 					
 					<div class="tab-content" id="pills-tabContent">
 						<div class="tab-pane fade show active" id="pills-home">
+							<?php 
+							$additional1 = strip_tags($data["fetch"]["additional1"]);
+							$additional2 = strip_tags($data["fetch"]["additional2"]);
+							$additional3 = strip_tags($data["fetch"]["additional3"]);
+							$additional4 = strip_tags($data["fetch"]["additional4"]);
+							$additional5 = strip_tags($data["fetch"]["additional5"]);
+							$additional6 = strip_tags($data["fetch"]["additional6"]);
+							$additional7 = strip_tags($data["fetch"]["additional7"]);
+							$additional8 = strip_tags($data["fetch"]["additional8"]);
+
+							$x = 1;
+							?>					
+		
 							<ul>
-								<li class="datalink" data-link="num1"><i>1</i><span>შემოსასვლელი 24.6 m<sup>2</sup></span></li>
-								<li class="datalink" data-link="num2"><i>2</i><span>მისაღები ოთახი/სამზარეულო 14.7 m<sup>2</sup></span></li>
-								<li class="datalink" data-link="num3"><i>3</i><span>აივანი 14.4 m<sup>2</sup></span></li>
-								<li class="datalink" data-link="num4"><i>4</i><span>აივანი 4.4 m<sup>2</sup></span></li>
-								<li class="datalink" data-link="num5"><i>5</i><span>საძინებელი 13.4 m<sup>2</sup></span></li>
-								<li class="datalink" data-link="num6"><i>6</i><span>აბაზანა 13.4 m<sup>2</sup></span></li>
+								<?php if((float)$data["fetch"]["classname"]=="54.6"){ ?>
+									<?php if($additional1!="" && $additional1!="empty"): ?>
+										<li class="datalink" data-link="<?=$x?>"><i><?=$x?></i><span>შემოსასვლელი <?=$additional1?> m<sup>2</sup></span></li>
+									<?php $x++; endif; ?>
+
+									<?php if($additional2!="" && $additional2!="empty"): ?>
+										<li class="datalink" data-link="<?=$x?>"><i><?=$x?></i><span>მისაღები ოთახი/სამზარეულო <?=$additional2?> m<sup>2</sup></span></li>
+									<?php $x++; endif; ?>
+
+									<?php if($additional3!="" && $additional3!="empty"): ?>
+										<li class="datalink" data-link="<?=$x?>"><i><?=$x?></i><span>აივანი <?=$additional3?> m<sup>2</sup></span></li>
+									<?php $x++; endif; ?>
+
+									<?php if($additional4!="" && $additional4!="empty"): ?>
+										<li class="datalink" data-link="<?=$x?>"><i><?=$x?></i><span>აივანი (2) <?=$additional4?> m<sup>2</sup></span></li>
+									<?php $x++; endif; ?>
+
+									<?php if($additional5!="" && $additional5!="empty"): ?>
+										<li class="datalink" data-link="<?=$x?>"><i><?=$x?></i><span>საძინებელი <?=$additional5?> m<sup>2</sup></span></li>
+									<?php $x++; endif; ?>
+
+									<?php if($additional6!="" && $additional6!="empty"): ?>
+										<li class="datalink" data-link="<?=$x?>"><i><?=$x?></i><span>საძინებელი (2) <?=$additional6?> m<sup>2</sup></span></li>
+									<?php $x++; endif; ?>
+
+									<?php if($additional7!="" && $additional7!="empty"): ?>
+										<li class="datalink" data-link="<?=$x?>"><i><?=$x?></i><span>აბაზანა <?=$additional7?> m<sup>2</sup></span></li>
+									<?php $x++; endif; ?>
+
+									<?php if($additional8!="" && $additional8!="empty"): ?>
+										<li class="datalink" data-link="<?=$x?>"><i><?=$x?></i><span>აბაზანა (2) <?=$additional8?> m<sup>2</sup></span></li>
+									<?php $x++; endif; ?>
+								<?php }elseif ((float)$data["fetch"]["classname"]=="55.05") {?>
+									<?php if($additional1!="" && $additional1!="empty"): ?>
+										<li class="datalink" data-link="<?=$x?>"><i><?=$x?></i><span>შემოსასვლელი <?=$additional1?> m<sup>2</sup></span></li>
+									<?php $x++; endif; ?>
+
+									<?php if($additional5!="" && $additional5!="empty"): ?>
+										<li class="datalink" data-link="<?=$x?>"><i><?=$x?></i><span>საძინებელი <?=$additional5?> m<sup>2</sup></span></li>
+									<?php $x++; endif; ?>
+
+									<?php if($additional6!="" && $additional6!="empty"): ?>
+										<li class="datalink" data-link="<?=$x?>"><i><?=$x?></i><span>საძინებელი (2) <?=$additional6?> m<sup>2</sup></span></li>
+									<?php $x++; endif; ?>
+
+									<?php if($additional3!="" && $additional3!="empty"): ?>
+										<li class="datalink" data-link="<?=$x?>"><i><?=$x?></i><span>აივანი <?=$additional3?> m<sup>2</sup></span></li>
+									<?php $x++; endif; ?>
+
+									<?php if($additional2!="" && $additional2!="empty"): ?>
+										<li class="datalink" data-link="<?=$x?>"><i><?=$x?></i><span>მისაღები ოთახი/სამზარეულო <?=$additional2?> m<sup>2</sup></span></li>
+									<?php $x++; endif; ?>
+
+									<?php if($additional7!="" && $additional7!="empty"): ?>
+										<li class="datalink" data-link="<?=$x?>"><i><?=$x?></i><span>აბაზანა <?=$additional7?> m<sup>2</sup></span></li>
+									<?php $x++; endif; ?>
+								<?php }else if((float)$data["fetch"]["classname"]=="58.4"){ ?>
+									<?php if($additional1!="" && $additional1!="empty"): ?>
+										<li class="datalink" data-link="<?=$x?>"><i><?=$x?></i><span>შემოსასვლელი <?=$additional1?> m<sup>2</sup></span></li>
+									<?php $x++; endif; ?>
+
+									<?php if($additional2!="" && $additional2!="empty"): ?>
+										<li class="datalink" data-link="<?=$x?>"><i><?=$x?></i><span>მისაღები ოთახი/სამზარეულო <?=$additional2?> m<sup>2</sup></span></li>
+									<?php $x++; endif; ?>
+
+									<?php if($additional3!="" && $additional3!="empty"): ?>
+										<li class="datalink" data-link="<?=$x?>"><i><?=$x?></i><span>აივანი <?=$additional3?> m<sup>2</sup></span></li>
+									<?php $x++; endif; ?>
+
+									<?php if($additional4!="" && $additional4!="empty"): ?>
+										<li class="datalink" data-link="<?=$x?>"><i><?=$x?></i><span>აივანი (2) <?=$additional4?> m<sup>2</sup></span></li>
+									<?php $x++; endif; ?>
+
+									<?php if($additional5!="" && $additional5!="empty"): ?>
+										<li class="datalink" data-link="<?=$x?>"><i><?=$x?></i><span>საძინებელი <?=$additional5?> m<sup>2</sup></span></li>
+									<?php $x++; endif; ?>
+
+									<?php if($additional7!="" && $additional7!="empty"): ?>
+										<li class="datalink" data-link="<?=$x?>"><i><?=$x?></i><span>აბაზანა <?=$additional7?> m<sup>2</sup></span></li>
+									<?php $x++; endif; ?>
+								<?php }else if((float)$data["fetch"]["classname"]=="88.35"){ ?>
+									<?php if($additional1!="" && $additional1!="empty"): ?>
+										<li class="datalink" data-link="<?=$x?>"><i><?=$x?></i><span>შემოსასვლელი <?=$additional1?> m<sup>2</sup></span></li>
+									<?php $x++; endif; ?>
+
+									<?php if($additional7!="" && $additional7!="empty"): ?>
+										<li class="datalink" data-link="<?=$x?>"><i><?=$x?></i><span>აბაზანა <?=$additional7?> m<sup>2</sup></span></li>
+									<?php $x++; endif; ?>
+
+									<?php if($additional5!="" && $additional5!="empty"): ?>
+										<li class="datalink" data-link="<?=$x?>"><i><?=$x?></i><span>საძინებელი <?=$additional5?> m<sup>2</sup></span></li>
+									<?php $x++; endif; ?>
+
+									<?php if($additional3!="" && $additional3!="empty"): ?>
+										<li class="datalink" data-link="<?=$x?>"><i><?=$x?></i><span>აივანი <?=$additional3?> m<sup>2</sup></span></li>
+									<?php $x++; endif; ?>
+
+									<?php if($additional6!="" && $additional6!="empty"): ?>
+										<li class="datalink" data-link="<?=$x?>"><i><?=$x?></i><span>საძინებელი (2) <?=$additional6?> m<sup>2</sup></span></li>
+									<?php $x++; endif; ?>
+
+									<?php if($additional2!="" && $additional2!="empty"): ?>
+										<li class="datalink" data-link="<?=$x?>"><i><?=$x?></i><span>მისაღები ოთახი/სამზარეულო <?=$additional2?> m<sup>2</sup></span></li>
+									<?php $x++; endif; ?>
+
+									<?php if($additional4!="" && $additional4!="empty"): ?>
+										<li class="datalink" data-link="<?=$x?>"><i><?=$x?></i><span>აივანი (2) <?=$additional4?> m<sup>2</sup></span></li>
+									<?php $x++; endif; ?>
+
+									<?php if($additional8!="" && $additional8!="empty"): ?>
+										<li class="datalink" data-link="<?=$x?>"><i><?=$x?></i><span>აბაზანა (2) <?=$additional8?> m<sup>2</sup></span></li>
+									<?php $x++; endif; ?>
+								<?php } ?>
 							</ul>
 						</div>
 					</div>
@@ -170,7 +309,7 @@ echo $data['headerModule'];// assets
 					<div class="bottom1"></div>
 					<!-- <div class="bottom2"></div> -->
 					<div class="bottom3">
-						<a href="">
+						<a href="#">
 							<i></i>
 							<span>ჩამოტვირთე<br>სართულის გეგმა</span>
 						</a>
@@ -184,42 +323,18 @@ echo $data['headerModule'];// assets
 	<section class="flats" id="flats">
 		<h2>სხვა ბინები</h2>
 		<div class="row">
+			<?php foreach($data["flatsfrom54"] as $value):  ?>
+
 			<div class="col-md-3 col-sm-12">
 				<div class="boxphoto">
 					<div class="in">
-						<div class="flats-photo" style="background-image: url('/public/img/web/render.jpg');">
-							<p>55 კვბ</p>
-						</div>
+						<a href="<?=$value["url"]?>" class="flats-photo" style="background-image: url('<?=$value["photo"]?>');">
+							<p><?=$value["title"]?></p>
+						</a>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-3 col-sm-12">
-				<div class="boxphoto">
-					<div class="in">
-						<div class="flats-photo" style="background-image: url('/public/img/web/render.jpg');">
-							<p>60 კვბ</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-12">
-				<div class="boxphoto">
-					<div class="in">
-						<div class="flats-photo" style="background-image: url('/markup/img/render.jpg');">
-							<p>65 კვბ</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-12">
-				<div class="boxphoto">
-					<div class="in">
-						<div class="flats-photo" style="background-image: url('/public/img/web/render.jpg');">
-							<p>70 კვბ</p>
-						</div>
-					</div>
-				</div>
-			</div>
+			<?php endforeach; ?>
 		</div>
 	</section>
 

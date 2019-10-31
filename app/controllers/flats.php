@@ -1,13 +1,23 @@
 <?php
 class Flats extends Controller
 {
+	public $apartment; 
 	public function __construct()
 	{
-		
+		require_once 'app/functions/request.php'; 
+
+		$this->apartment = (int)functions\request::index("GET", "aprt"); 
+
+		if($this->apartment<=0){
+			header("Location: /en/home");
+			exit;
+		}
 	}
 
 	public function index($name = '')
 	{ 
+		
+
 		/* DATABASE */
 		$db_langs = new Database("language", array(
 			"method"=>"select"
@@ -62,6 +72,47 @@ class Flats extends Controller
 			"lang"=>$_SESSION["LANG"]
 		));
 
+		$selectById = new Database("modules", array(
+			"method"=>"selectById",
+			"idx"=>$this->apartment,
+			"lang"=>$_SESSION["LANG"]
+		));
+		$fetch = $selectById->getter();
+
+		$photos = new Database('photos', array(
+			'method'=>'selectByParent', 
+			'idx'=>$fetch["idx"], 
+			'lang'=>$_SESSION["LANG"], 
+			'type'=>$fetch["type"]
+		));
+
+		$db_flatsfrom54 = new Database("modules", array(
+			"method"=>"selectModuleByType", 
+			"type"=>"flatsfrom54",
+			'order'=>"CAST(`usefull`.`title` AS UNSIGNED INTEGER)",
+			'by'=>"ASC"
+		));
+
+		$db_cover = new Database("modules", array(
+			"method"=>"selectByTypeTitle",
+			"title"=>$fetch["classname"],
+			"type"=>"flatsfrom54",
+			"lang"=>$_SESSION["LANG"]
+		));
+
+		$db_floorlist = new Database("modules", array(
+			"method"=>"selectModuleByType",
+			"type"=>$fetch["type"],
+			'order'=>"CAST(`usefull`.`classname` AS UNSIGNED INTEGER)",
+			'by'=>"ASC"
+		));
+
+		// echo $fetch["type"];
+
+		// echo "<pre>";
+		// print_r($db_cover);
+		// echo "</pre>";
+
 		/* view */
 		$this->view('flats/index', [
 			"header"=>array(
@@ -72,8 +123,14 @@ class Flats extends Controller
 			"contactdetails"=>$db_contactdetails->getter(),  
 			"social"=>$db_socialnetworks->getter(),  
 			"pageData"=>$db_pagedata->getter(),
+			"cover"=>$db_cover->getter(),
+			"flatsfrom54"=>$db_flatsfrom54->getter(),
 			"floor1"=>$db_floors1->getter(),
-			"floor2"=>$db_floors2->getter()
+			"floor2"=>$db_floors2->getter(), 
+			"fetch"=>$fetch, 
+			"floorlist"=>$db_floorlist->getter(), 
+			"apartment"=>$this->apartment, 
+			"photos"=>$photos->getter() 
 		]);
 	}
 

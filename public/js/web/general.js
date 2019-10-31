@@ -15,7 +15,7 @@ var openFloor = (flat, title, floor) => {
 	document.getElementsByClassName("custom-modal-popup")[0].style.display = "block";
 	setTimeout(function(){
 		var xhttp = ajax("loadfloor", "flat="+flat+"&floor="+floor);
-			xhttp.onreadystatechange = function() {
+		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
 				var responseText = JSON.parse(this.responseText);
 
@@ -87,7 +87,31 @@ var detectmob = () => {
  else {
     return false;
   }
-}
+};
+
+var changeApartment = () => {
+	var block = document.getElementsByClassName("gs-block")[0].value;
+	var floor = document.getElementsByClassName("gs-floor")[0];
+	var fl = floor.options[floor.selectedIndex].text;
+	var room = document.getElementsByClassName("gs-room")[0];
+	var rm = room.options[room.selectedIndex].text;
+	
+	document.body.style.cursor='wait';
+
+	var xhttp = ajax("changeapartment", "block="+block+"&floor="+fl+"&room="+rm);
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var responseText = JSON.parse(this.responseText);
+
+			if(responseText.Error.Code==1){
+				console.log(responseText.Error.Text);
+			}else{
+				location.href = responseText.Success.Goto;			
+			}
+			
+		}
+	};
+};
 
 (function(){
 
@@ -103,6 +127,24 @@ var detectmob = () => {
 				orders[i].classList.add("order-"+order);
 			}
 		}
+	};
+
+	if(
+		typeof document.getElementsByClassName("gs-block")[0] !== "undefined" && 
+		typeof document.getElementsByClassName("gs-floor")[0] !== "undefined" && 
+		typeof document.getElementsByClassName("gs-room")[0] !== "undefined"  
+	){
+		document.getElementsByClassName("gs-block")[0].addEventListener("change", (e) => {
+			changeApartment();
+		});
+
+		document.getElementsByClassName("gs-floor")[0].addEventListener("change", (e) => {
+			changeApartment();
+		});
+
+		document.getElementsByClassName("gs-room")[0].addEventListener("change", (e) => {
+			changeApartment();
+		});
 	};
 
 	if(typeof document.getElementsByClassName("content")[0] !== "undefined"){

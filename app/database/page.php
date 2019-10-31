@@ -51,6 +51,19 @@ class page
 		return json_decode($fetch, true);
 	}
 
+	private function selectTitle($args)
+	{
+		$update = "SELECT `idx` FROM `navigation` WHERE `cid`=:cid AND `title` LIKE '%".$args["title"]."%' AND `lang`=:lang";
+		$prepare = $this->conn->prepare($update);
+		
+		$prepare->execute(array(
+			":cid"=>$args["cid"], 
+			":lang"=>$args["lang"]
+		));
+
+		return $prepare->fetch(PDO::FETCH_ASSOC);
+	}
+
 	private function updateVisibility($args)
 	{
 		$visibility = ($args['visibility']==0) ? 1 : 0;

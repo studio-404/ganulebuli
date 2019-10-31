@@ -131,14 +131,23 @@ $(document).ready(function(){
   });
 
   $(".datalink").mouseenter(function(){
+
+
     var dt = $(this).attr("data-link");
-    $("."+dt).css({"background-color":"black"});
+    // $("."+dt).css({"background-color":"black"});
+
+    var svgClass = document.querySelector(".svgClass").getSVGDocument();
+    svgClass.getElementById("Layer_"+dt).getElementsByClassName("st0")[0].style.fill = "#000000";
+    
     $("i", this).css({"background-color":"white", "color":"black"});
   });
 
   $(".datalink").mouseleave(function(){
     var dt = $(this).attr("data-link");
-    $("."+dt).css({"background-color":"#71D82C"});
+    
+    var svgClass = document.querySelector(".svgClass").getSVGDocument();
+    svgClass.getElementById("Layer_"+dt).getElementsByClassName("st0")[0].style.fill = "#71D82C";
+
     $("i", this).css({"background-color":"#71D82C", "color":"white"});
   });
 
